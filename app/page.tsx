@@ -4,15 +4,15 @@ import Hero from "../components/Hero";
 export default function Page() {
   return (
     <>
-      <Hero
-        title="Take Control of Unpredictable Energy Costs"
-        subtitle="Volatile markets, supplier markups, and confusing rate structures drain profit margins. Chang Energy keeps budgets predictable with transparent procurement, block+index strategies, and disciplined bill audits."
-        imageUrl="/images/hero-power.jpg" // <-- your uploaded image
-        ctas={[
-          { label: "Audit My Energy Spend", href: "/contact", variant: "primary" },
-          { label: "See How We Cut Costs", href: "/solutions", variant: "outline" },
-        ]}
-      />
+     <Hero
+  title="Stop Letting Energy Costs Control Your Budget"
+  subtitle="Rising supplier markups and unpredictable market swings can quietly drain profits. Chang Energy gives manufacturers, distributors, and multi-site operators the data, leverage, and strategy to lock in stable, transparent power costs."
+  imageUrl="/images/hero-power.jpg"
+  ctas={[
+    { label: "Audit My Energy Spend", href: "/contact", variant: "primary" },
+    { label: "See How We Cut Costs", href: "/solutions", variant: "outline" },
+  ]}
+/>
 
       {/* Proof bar */}
       <section className="bg-white border-y">
