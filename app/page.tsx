@@ -1,29 +1,32 @@
+import Hero from "@/components/Hero";
+import Link from "next/link";
+
 export default function Page() {
   return (
-    <section
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1950&q=80')",
-      }}
-    >
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60"></div>
+    <>
+      <Hero
+        title="Your Large-Company Edge in Power Procurement"
+        subtitle="Chang Energy helps enterprises tame volatility, lower total cost, and protect budgets with block+index strategies, PLC management, and bill-audit discipline."
+        imageUrl="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80"
+        ctas={[
+          { label: "Book a Strategy Call", href: "/contact", variant: "primary" },
+          { label: "Blended Rate Calculator", href: "/resources/blended-rate-calculator", variant: "outline" },
+        ]}
+      />
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-6 max-w-2xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Blended Rate Calculator
-        </h1>
-        <p className="text-lg md:text-xl mb-8 text-gray-200">
-          Understand your true blended energy rate. Calculate how your fixed and
-          indexed blocks combine — and uncover real savings potential.
+      {/* proof section below hero */}
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+          <div><div className="text-2xl font-semibold">$100M+</div><div>Energy spend guided</div></div>
+          <div><div className="text-2xl font-semibold">40+</div><div>Active suppliers</div></div>
+          <div><div className="text-2xl font-semibold">3–7%</div><div>Typical audit recovery</div></div>
+          <div><div className="text-2xl font-semibold">PJM/ERCOT</div><div>Market coverage</div></div>
+        </div>
+        <p className="p mt-8 text-gray-600">
+          Need a specific plan for cold storage or manufacturing? See{" "}
+          <Link href="/industries/cold-storage" className="underline">industry playbooks</Link>.
         </p>
-
-        <button className="bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition">
-          Coming Soon
-        </button>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
