@@ -4,15 +4,16 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      <Hero
+     <Hero
   title="Take Control of Unpredictable Energy Costs"
   subtitle="Volatile markets, supplier markups, and confusing rate structures drain profit margins. Chang Energy helps you take control with transparent procurement, block+index strategies, and disciplined energy audits that keep your budgets stable year after year."
-  imageUrl="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=2000&q=80"
+  imageUrl="https://images.unsplash.com/photo-1529927066849-6c8af6a3a6c8?ixlib=rb-4.0.3&ixid=M3w5MTMyfDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
   ctas={[
     { label: "Audit My Energy Spend", href: "/contact", variant: "primary" },
     { label: "See How We Cut Costs", href: "/solutions", variant: "outline" },
   ]}
 />
+
 
       {/* Proof bar / value props */}
       <section className="bg-white">
