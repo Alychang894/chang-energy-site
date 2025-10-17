@@ -1,11 +1,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 
-type CTA = {
-  label: string;
-  href: Route;                 // typed routes-friendly
-  variant?: "primary" | "outline";
-};
+type CTA = { label: string; href: Route; variant?: "primary" | "outline" };
 
 export default function Hero({
   title,
@@ -24,7 +20,7 @@ export default function Hero({
       style={{ backgroundImage: "url(" + imageUrl + ")" }}
     >
       {/* dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/65"></div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 text-white">
         <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">{title}</h1>
@@ -34,4 +30,23 @@ export default function Hero({
           </p>
         )}
         {ctas.length > 0 && (
-          <div className="mt-
+          <div className="mt-8 flex flex-wrap gap-4">
+            {ctas.map((c) => (
+              <Link
+                key={c.href}
+                href={c.href}
+                className={
+                  c.variant === "outline"
+                    ? "btn btn-outline bg-white/10 text-white border-white/30 hover:bg-white/20"
+                    : "btn btn-primary"
+                }
+              >
+                {c.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
