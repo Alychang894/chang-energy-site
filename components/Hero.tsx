@@ -15,38 +15,36 @@ export default function Hero({
   ctas?: CTA[];
 }) {
   return (
-    <section
-      className="relative min-h-[70vh] md:min-h-[80vh] flex items-center bg-cover bg-center"
-      style={{ backgroundImage: "url(" + imageUrl + ")" }}
-    >
-      {/* dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/65"></div>
+  <section
+  className="relative min-h-[85vh] flex items-center justify-center bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${imageUrl})`,
+  }}
+>
+  {/* Dark gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 text-white">
-        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">{title}</h1>
-        {subtitle && (
-          <p className="mt-6 max-w-3xl text-lg md:text-xl text-gray-200 leading-relaxed">
-            {subtitle}
-          </p>
-        )}
-        {ctas.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-4">
-            {ctas.map((c) => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className={
-                  c.variant === "outline"
-                    ? "btn btn-outline bg-white/10 text-white border-white/30 hover:bg-white/20"
-                    : "btn btn-primary"
-                }
-              >
-                {c.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
+  <div className="relative z-10 text-center max-w-4xl px-6 text-white">
+    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+      {title}
+    </h1>
+    <p className="text-lg md:text-xl mb-8 text-gray-200">{subtitle}</p>
+    <div className="flex flex-wrap justify-center gap-4">
+      {ctas.map((c) => (
+        <a
+          key={c.href}
+          href={c.href}
+          className={`px-6 py-3 rounded-md text-sm font-semibold ${
+            c.variant === "primary"
+              ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md"
+              : "border border-white/70 text-white hover:bg-white/10"
+          }`}
+        >
+          {c.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
 }
