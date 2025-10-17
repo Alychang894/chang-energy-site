@@ -25,31 +25,44 @@ export default function Page() {
       </section>
 
       {/* How we work (like the reference sites’ simple 3-step) */}
-      <section className="bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="h2">How we work</h2>
-            <ol className="mt-4 space-y-4 text-sm">
-              <li><strong>Audit</strong> — Bills, usage, PLC/LF, supplier terms.</li>
-              <li><strong>Strategy</strong> — Fixed, block+index, or index+cap layering.</li>
-              <li><strong>Execution</strong> — RFPs with suppliers, negotiations, monitoring.</li>
-            </ol>
-            <p className="p mt-6 text-gray-600">
-              Need a specific plan for cold storage or manufacturing? See{" "}
-              <Link href="/industries/cold-storage" className="underline">industry playbooks</Link>.
-            </p>
-          </div>
-          <div className="rounded-2xl border p-6 bg-white">
-            <h3 className="text-xl font-semibold">Why enterprises choose Chang</h3>
-            <ul className="mt-4 text-sm text-gray-700 space-y-2">
-              <li>Market intel + supplier access (not just a price quote)</li>
-              <li>Risk controls: block+index, budget caps, KPI reporting</li>
-              <li>Capacity/transmission strategy for lower PLC/NSPL</li>
-              <li>Utility bill audits with real recoveries</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+     <section className="bg-gray-50">
+  <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 className="text-3xl font-semibold text-gray-900">Built Around the Way You Buy Power</h2>
+      <p className="mt-4 text-gray-600">
+        Energy buying shouldn’t feel like gambling. We help facility and finance leaders replace guesswork with data-driven strategy — keeping budgets predictable and margins protected.
+      </p>
+
+      <ul className="mt-8 space-y-4">
+        <li>
+          <strong>Audit →</strong> Find hidden supplier markups, misapplied rates, and overcharges.
+        </li>
+        <li>
+          <strong>Strategy →</strong> Lock in block+index or fixed structures that fit your risk tolerance.
+        </li>
+        <li>
+          <strong>Execution →</strong> Negotiate supplier terms, manage PLCs, and monitor ongoing spend.
+        </li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border p-8 bg-white shadow-sm">
+      <h3 className="text-xl font-semibold text-gray-900">The Result</h3>
+      <p className="mt-4 text-gray-600">
+        Predictable energy costs. Stronger P&L protection. Fewer supplier surprises.
+      </p>
+      <div className="mt-6">
+        <a
+          href="/contact"
+          className="btn btn-primary inline-block"
+        >
+          Schedule a Free Audit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Cross-links like the examples */}
       <section className="bg-white">
