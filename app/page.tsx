@@ -1,72 +1,70 @@
+// app/page.tsx
 import Hero from "../components/Hero";
-import Link from "next/link";
 
 export default function Page() {
   return (
     <>
-     <Hero
-  title="Take Control of Unpredictable Energy Costs"
-  subtitle="Volatile markets, supplier markups, and confusing rate structures drain profit margins. Chang Energy helps you take control with transparent procurement, block+index strategies, and disciplined energy audits that keep your budgets stable year after year."
-  imageUrl="https://images.unsplash.com/photo-1529927066849-6c8af6a3a6c8?auto=format&fit=crop&w=2000&q=80"
-  ctas={[
-    { label: "Audit My Energy Spend", href: "/contact", variant: "primary" },
-    { label: "See How We Cut Costs", href: "/solutions", variant: "outline" },
-  ]}
-/>
+      <Hero
+        title="Take Control of Unpredictable Energy Costs"
+        subtitle="Volatile markets, supplier markups, and confusing rate structures drain profit margins. Chang Energy keeps budgets predictable with transparent procurement, block+index strategies, and disciplined bill audits."
+        imageUrl="/images/hero-power.jpg" // <-- your uploaded image
+        ctas={[
+          { label: "Audit My Energy Spend", href: "/contact", variant: "primary" },
+          { label: "See How We Cut Costs", href: "/solutions", variant: "outline" },
+        ]}
+      />
 
-
-
-      {/* Proof bar / value props */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-          <div><div className="text-2xl font-semibold">$100M+</div><div>Energy spend guided</div></div>
-          <div><div className="text-2xl font-semibold">40+</div><div>Active suppliers</div></div>
-          <div><div className="text-2xl font-semibold">3–7%</div><div>Typical audit recovery</div></div>
-          <div><div className="text-2xl font-semibold">PJM/ERCOT</div><div>Market coverage</div></div>
+      {/* Proof bar */}
+      <section className="bg-white border-y">
+        <div className="mx-auto max-w-7xl px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div className="text-3xl font-bold text-gray-900">$100M+</div>
+            <div className="text-sm text-gray-600 mt-2">Energy spend guided annually</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-gray-900">40+</div>
+            <div className="text-sm text-gray-600 mt-2">Suppliers benchmarked for every client</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-gray-900">3–7%</div>
+            <div className="text-sm text-gray-600 mt-2">Average recovery from bill audits</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-gray-900">PJM + ERCOT</div>
+            <div className="text-sm text-gray-600 mt-2">Full market coverage</div>
+          </div>
         </div>
       </section>
 
-      {/* How we work (like the reference sites’ simple 3-step) */}
-     <section className="bg-gray-50">
-  <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 className="text-3xl font-semibold text-gray-900">Built Around the Way You Buy Power</h2>
-      <p className="mt-4 text-gray-600">
-        Energy buying shouldn’t feel like gambling. We help facility and finance leaders replace guesswork with data-driven strategy — keeping budgets predictable and margins protected.
-      </p>
+      {/* Customer-first section */}
+      <section className="bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl font-semibold text-gray-900">Turn volatility into a budget you can trust</h2>
+            <p className="mt-4 text-gray-600">
+              If your energy costs swing quarter to quarter, it’s not your fault—suppliers and markets make it hard to see the truth.
+              We put you back in control with transparent pricing, a structure that matches your risk tolerance, and ongoing monitoring.
+            </p>
+            <ul className="mt-8 space-y-4">
+              <li><strong>Audit →</strong> Expose hidden markups, misapplied rates, and overcharges.</li>
+              <li><strong>Strategy →</strong> Block+index, fixed, or capped—engineered to your tolerance and load profile.</li>
+              <li><strong>Execution →</strong> We run RFPs, negotiate terms, manage PLCs, and watch your bills every month.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border p-8 bg-white shadow-sm">
+            <h3 className="text-xl font-semibold text-gray-900">Outcomes you can measure</h3>
+            <ul className="mt-4 text-gray-700 space-y-2 text-sm">
+              <li>Stable budgets across volatile markets</li>
+              <li>Lower total cost through supplier competition</li>
+              <li>3–7% typical recovery from bill audits</li>
+              <li>Lower PLC/NSPL via capacity strategy</li>
+            </ul>
+            <a href="/contact" className="btn btn-primary inline-block mt-6">Schedule a Free Audit</a>
+          </div>
+        </div>
+      </section>
 
-      <ul className="mt-8 space-y-4">
-        <li>
-          <strong>Audit →</strong> Find hidden supplier markups, misapplied rates, and overcharges.
-        </li>
-        <li>
-          <strong>Strategy →</strong> Lock in block+index or fixed structures that fit your risk tolerance.
-        </li>
-        <li>
-          <strong>Execution →</strong> Negotiate supplier terms, manage PLCs, and monitor ongoing spend.
-        </li>
-      </ul>
-    </div>
-
-    <div className="rounded-2xl border p-8 bg-white shadow-sm">
-      <h3 className="text-xl font-semibold text-gray-900">The Result</h3>
-      <p className="mt-4 text-gray-600">
-        Predictable energy costs. Stronger P&L protection. Fewer supplier surprises.
-      </p>
-      <div className="mt-6">
-        <a
-          href="/contact"
-          className="btn btn-primary inline-block"
-        >
-          Schedule a Free Audit
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-      {/* Cross-links like the examples */}
+      {/* Cross-links */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16 grid md:grid-cols-3 gap-6">
           <a href="/solutions" className="block rounded-2xl border p-6 hover:shadow">
