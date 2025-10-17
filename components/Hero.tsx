@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { Route } from "next";        // <-- add this
+import type { Route } from "next";
 
 type CTA = {
   label: string;
-  href: Route;                             // <-- change string -> Route
+  href: Route;                 // typed routes-friendly
   variant?: "primary" | "outline";
 };
 
@@ -34,23 +34,4 @@ export default function Hero({
           </p>
         )}
         {ctas.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-4">
-            {ctas.map((c) => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className={
-                  c.variant === "outline"
-                    ? "btn btn-outline bg-white/10 text-white border-white/30 hover:bg-white/20"
-                    : "btn btn-primary"
-                }
-              >
-                {c.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
+          <div className="mt-
