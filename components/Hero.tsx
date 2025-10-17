@@ -1,6 +1,11 @@
 import Link from "next/link";
+import type { Route } from "next";        // <-- add this
 
-type CTA = { label: string; href: string; variant?: "primary" | "outline" };
+type CTA = {
+  label: string;
+  href: Route;                             // <-- change string -> Route
+  variant?: "primary" | "outline";
+};
 
 export default function Hero({
   title,
