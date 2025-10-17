@@ -5,15 +5,14 @@ export default function Page() {
   return (
     <>
       <Hero
-        title="Your Large-Company Edge in Power Procurement"
-        subtitle="We turn volatile energy markets into predictable budgets with block+index strategies, PLC management, and bill-audit discipline."
-        // Industrial grid/lines — not 'real estate' vibes
-        imageUrl="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=2000&q=80"
-        ctas={[
-          { label: "Book a Strategy Call", href: "/contact", variant: "primary" },
-          { label: "Blended Rate Calculator", href: "/resources/blended-rate-calculator", variant: "outline" },
-        ]}
-      />
+  title="Take Control of Unpredictable Energy Costs"
+  subtitle="Volatile markets, supplier markups, and confusing rate structures drain profit margins. Chang Energy helps you take control with transparent procurement, block+index strategies, and disciplined energy audits that keep your budgets stable year after year."
+  imageUrl="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=2000&q=80"
+  ctas={[
+    { label: "Audit My Energy Spend", href: "/contact", variant: "primary" },
+    { label: "See How We Cut Costs", href: "/solutions", variant: "outline" },
+  ]}
+/>
 
       {/* Proof bar / value props */}
       <section className="bg-white">
