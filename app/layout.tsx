@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.changenergygroup.com"),
 } as const;
 
+<a href="/solutions" className="hover:opacity-80">Solutions</a>
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
