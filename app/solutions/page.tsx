@@ -6,19 +6,19 @@ import FadeIn from "../../components/FadeIn";
 export const metadata: Metadata = {
   title: "Solutions | Chang Energy",
   description:
-    "Transparent procurement, block+index strategies, capacity/PLC optimization, utility bill audits, and actionable reporting for manufacturers and multi-site operators.",
+    "Chang Energy provides transparent energy procurement, capacity and transmission management, bill audits, and reporting solutions built for real operational needs.",
 };
 
 export default function SolutionsPage() {
   return (
     <>
       <Hero
-        title="Predictable Power. Lower Total Cost."
-        subtitle="You need budget stability without paying a premium. We structure procurement and capacity strategy around your load profile and risk tolerance—then track results with operator-friendly reporting."
-        imageUrl="/images/hero-power.jpg"
+        title="Energy Strategy Built for Real Operations"
+        subtitle="We help manufacturers, cold storage facilities, and multi-site operators turn energy volatility into predictable, data-driven budgets — without sacrificing flexibility or uptime."
+        imageUrl="/images/hero-industrial-dark.jpg"
         ctas={[
-          { label: "Schedule a Free Audit", href: "/contact", variant: "primary" },
-          { label: "See Case Outcomes", href: "/resources", variant: "outline" },
+          { label: "Book a Strategy Call", href: "/contact", variant: "primary" },
+          { label: "See Cost Reduction Playbooks", href: "/resources", variant: "outline" },
         ]}
       />
 
@@ -30,7 +30,7 @@ export default function SolutionsPage() {
             { href: "#capacity", label: "Capacity & Transmission" },
             { href: "#audit", label: "Bill Audit & Recovery" },
             { href: "#reporting", label: "Data & Reporting" },
-          ].map((x, i) => (
+          ].map((x) => (
             <a
               key={x.href}
               href={x.href}
@@ -46,7 +46,9 @@ export default function SolutionsPage() {
       <section className="bg-gray-50 py-20 px-6">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
-            <h2 className="text-3xl font-bold mb-10">What We Deliver</h2>
+            <h2 className="text-3xl font-bold mb-10 text-gray-900">
+              Comprehensive Solutions That Deliver Control and Savings
+            </h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -55,14 +57,14 @@ export default function SolutionsPage() {
               <div id="procurement" className="bg-white rounded-2xl p-8 shadow-sm">
                 <h3 className="text-xl font-semibold">Procurement & Risk Strategy</h3>
                 <p className="mt-3 text-gray-700">
-                  Fixed isn’t always safe—and index isn’t always cheap. We structure
-                  block+index, fixed, or capped products to match your tolerance and load shape,
-                  then run competitive RFPs to create real supplier pressure.
+                  Fixed isn’t always safe — and index isn’t always cheap. We design block+index,
+                  fixed, or hybrid products tailored to your load profile and tolerance for risk,
+                  then run supplier competitions to keep pricing honest.
                 </p>
                 <ul className="mt-4 text-sm text-gray-700 space-y-2">
-                  <li>• Price transparency and markup visibility</li>
-                  <li>• Hedge size informed by usage patterns & peaks</li>
-                  <li>• Terms aligned to operational realities (swing, bandwidth, pass-throughs)</li>
+                  <li>• Transparent supplier markups</li>
+                  <li>• Data-informed hedge sizing</li>
+                  <li>• Terms aligned to operational realities</li>
                 </ul>
               </div>
             </FadeIn>
@@ -70,16 +72,15 @@ export default function SolutionsPage() {
             {/* Capacity & Transmission */}
             <FadeIn delay={100}>
               <div id="capacity" className="bg-white rounded-2xl p-8 shadow-sm">
-                <h3 className="text-xl font-semibold">Capacity & Transmission (PLC / NSPL)</h3>
+                <h3 className="text-xl font-semibold">Capacity & Transmission Optimization</h3>
                 <p className="mt-3 text-gray-700">
-                  Capacity and transmission often rival the energy itself. We manage peak alerts,
-                  targeted curtailment, and planning so your PLC/NSPL is minimized without
-                  operational disruption.
+                  Capacity and transmission often make up 30–40% of your bill. We help you manage
+                  peaks, reduce PLC/NSPL tags, and capture predictable savings across your portfolio.
                 </p>
                 <ul className="mt-4 text-sm text-gray-700 space-y-2">
-                  <li>• Peak prediction and alerting (PJM / ERCOT)</li>
-                  <li>• Practical curtailment playbooks by site</li>
-                  <li>• Year-over-year PLC/NSPL tracking and savings attribution</li>
+                  <li>• Peak prediction and curtailment planning</li>
+                  <li>• PLC/NSPL management to reduce capacity costs</li>
+                  <li>• Ongoing tracking and alerting during peak season</li>
                 </ul>
               </div>
             </FadeIn>
@@ -89,13 +90,13 @@ export default function SolutionsPage() {
               <div id="audit" className="bg-white rounded-2xl p-8 shadow-sm">
                 <h3 className="text-xl font-semibold">Utility Bill Audit & Recovery</h3>
                 <p className="mt-3 text-gray-700">
-                  We review tariffs, riders, taxes, meter data, and supplier invoices to uncover
-                  errors and misapplied rates—then pursue credits and corrections.
+                  Most large accounts overpay between 3–7%. We review invoices, tariffs, and pass-through charges,
+                  then recover errors and enforce contract compliance — no savings, no fee.
                 </p>
                 <ul className="mt-4 text-sm text-gray-700 space-y-2">
-                  <li>• 3–7% typical recoveries across portfolios</li>
-                  <li>• Contract compliance & pass-through validation</li>
-                  <li>• Ongoing monthly invoice QA</li>
+                  <li>• Historical bill audits and refunds</li>
+                  <li>• Real-time invoice QA each month</li>
+                  <li>• Transparent reporting and supplier accountability</li>
                 </ul>
               </div>
             </FadeIn>
@@ -103,35 +104,11 @@ export default function SolutionsPage() {
             {/* Data & Reporting */}
             <FadeIn delay={300}>
               <div id="reporting" className="bg-white rounded-2xl p-8 shadow-sm">
-                <h3 className="text-xl font-semibold">Data, KPI & Operator Reporting</h3>
+                <h3 className="text-xl font-semibold">Data, KPI & Executive Reporting</h3>
                 <p className="mt-3 text-gray-700">
-                  Clear dashboards for finance and operations: budget vs. actuals, hedge position,
-                  PLC exposure, and verified savings—so energy stays predictable and boring.
+                  Energy shouldn’t be guesswork. We deliver clear dashboards for finance, operations,
+                  and procurement — budget vs actuals, hedge positions, and KPI progress.
                 </p>
                 <ul className="mt-4 text-sm text-gray-700 space-y-2">
-                  <li>• Budget tracking & variance explanations</li>
-                  <li>• Hedge/coverage visibility and risk alerts</li>
-                  <li>• Site-level scorecards for multi-site operators</li>
-                </ul>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* CTA */}
-          <FadeIn delay={400}>
-            <div className="mt-12 rounded-2xl border bg-white p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div>
-                <h4 className="text-lg font-semibold">Ready to pressure-test your current setup?</h4>
-                <p className="text-gray-600 mt-1">
-                  We’ll audit recent invoices and your contract to surface savings opportunities—
-                  then show a clear plan for stabilizing costs.
-                </p>
-              </div>
-              <a href="/contact" className="btn btn-primary">Book a Strategy Call</a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-    </>
-  );
-}
+                  <li>• Budget tracking and variance analysis</li>
+                  <li>• Hedge/cov
