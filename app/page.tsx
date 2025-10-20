@@ -1,3 +1,4 @@
+import FadeIn from "../components/FadeIn";
 // app/page.tsx
 import Hero from "../components/Hero";
 
