@@ -16,3 +16,34 @@ body { background: rgb(var(--bg)); }
 .btn{ @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium shadow-sm; }
 .btn-primary{ @apply bg-brand-600 text-white hover:bg-brand-700; }
 .btn-outline{ @apply border border-gray-300 hover:bg-gray-50; }
+/* Brand theming helpers */
+:root {
+  --brand: #F97316;
+}
+::selection {
+  background: rgba(249, 115, 22, .15);
+}
+.brand-ring {
+  @apply ring-brand/30 focus:ring-2 focus:ring-offset-0;
+}
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg font-semibold transition-colors;
+}
+.btn-primary {
+  @apply btn bg-brand text-white hover:bg-brand-600;
+}
+.btn-outline {
+  @apply btn border border-gray-300 text-gray-800 hover:border-gray-400;
+}
+.badge {
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+}
+.badge-brand {
+  @apply badge bg-brand/10 text-brand;
+}
+.link-brand {
+  @apply text-brand hover:text-brand-600;
+}
+.card {
+  @apply bg-white rounded-2xl shadow-card border border-gray-100;
+}
