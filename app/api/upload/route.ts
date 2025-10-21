@@ -1,75 +1,117 @@
-// app/api/upload/route.ts
-import { NextRequest, NextResponse } from "next/server";
+// app/api/request-audit/route.ts
+import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 
-export const runtime = "edge"; // fast & compatible with Blob
+// Quick slugify helper
+function slugify(input: string) {
+  return (input || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
 
-export async function POST(req: NextRequest) {
+// Today as YYYYMMDD
+function yyyymmdd(d = new Date()) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}${m}${day}`;
+}
+
+// Sanitize a filename a bit
+function safeName(name: string) {
+  return (name || "file")
+    .replace(/\s+/g, "_")
+    .replace(/[^a-zA-Z0-9._-]/g, "");
+}
+
+export async function POST(req: Request) {
   try {
     const form = await req.formData();
 
-    // fields expected from your contact form
-    const file = form.get("bill") as File | null;      // <input name="bill" type="file" />
-    const companyRaw = (form.get("company") as string | null) || "unknown";
+    // ----- Collect fields (mirror the form exactly) -----
+    const company = String(form.get("company") || "");
+    const contactName = String(form.get("name") || "");
+    const email = String(form.get("email") || "");
+    const phone = String(form.get("phone") || "");
+    const annualKwh = String(form.get("annual_kwh") || "");        // optional
+    const market = String(form.get("market") || "");                // PJM/ ERCOT / etc
+    const message = String(form.get("message") || "");              // optional
 
-    if (!file) {
+    // ----- Grab file (optional but recommended) -----
+    const file = form.get("bill") as unknown as File | null;
+
+    if (!company || !contactName || !email) {
       return NextResponse.json(
-        { ok: false, error: "No file uploaded (field name should be 'bill')." },
+        { ok: false, error: "Company, name, and email are required." },
         { status: 400 }
       );
     }
 
-    if (file.size === 0) {
-      return NextResponse.json(
-        { ok: false, error: "The uploaded file is empty." },
-        { status: 400 }
-      );
+    const companySlug = slugify(company);
+    const today = yyyymmdd();
+    let uploadedUrl: string | null = null;
+    let uploadedKey: string | null = null;
+
+    if (file && file.size > 0) {
+      // basic server-side file size limit (10 MB)
+      const MAX_BYTES = 10 * 1024 * 1024;
+      if (file.size > MAX_BYTES) {
+        return NextResponse.json(
+          { ok: false, error: "Bill must be 10MB or less." },
+          { status: 400 }
+        );
+      }
+
+      // put() requires public access (private is a TS error)
+      const originalName = safeName((file as any).name || "bill.pdf");
+      const key = `bills/${companySlug}/${today}-${originalName}`;
+
+      const { url } = await put(key, file, {
+        access: "public",
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+        contentType: file.type || "application/octet-stream",
+      });
+
+      uploadedUrl = url;
+      uploadedKey = key;
     }
 
-    // Optional size guard (25 MB)
-    const MAX = 25 * 1024 * 1024;
-    if (file.size > MAX) {
-      return NextResponse.json(
-        { ok: false, error: "File too large (max 25 MB)." },
-        { status: 413 }
-      );
-    }
+    // Save an intake JSON for your records
+    const intake = {
+      receivedAt: new Date().toISOString(),
+      company,
+      contactName,
+      email,
+      phone,
+      annualKwh,
+      market,
+      message,
+      bill: uploadedUrl
+        ? { url: uploadedUrl, key: uploadedKey, size: file?.size, type: file?.type }
+        : null,
+      userAgent: req.headers.get("user-agent") || "",
+      ip: req.headers.get("x-forwarded-for") || "",
+    };
 
-    // Sanitize the company name for a clean folder path
-    const safeCompany = companyRaw
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)+/g, "") || "unknown";
-
-    // Derive file extension (default to pdf if missing)
-    const ext = (() => {
-      const n = file.name || "bill";
-      const i = n.lastIndexOf(".");
-      return i >= 0 ? n.slice(i + 1).toLowerCase() : "pdf";
-    })();
-
-    // Unique + sortable filename
-    const ts = new Date().toISOString().replace(/[:.]/g, "-");
-    const key = `bills/${safeCompany}/${ts}-${crypto.randomUUID()}.${ext}`;
-
-    // Upload to Vercel Blob (public by design; unique URL)
-    const uploaded = await put(key, file, {
-      access: "public", // NOTE: "private" is not supported by the current SDK typings
-      contentType: file.type || undefined,
-      token: process.env.BLOB_READ_WRITE_TOKEN, // set in Vercel → Settings → Environment Variables
+    const intakeKey = `intake/${Date.now()}-${companySlug}.json`;
+    await put(intakeKey, JSON.stringify(intake, null, 2), {
+      access: "public",
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+      contentType: "application/json",
     });
 
     return NextResponse.json({
       ok: true,
-      key,                     // e.g. bills/acme-co/2025-10-20T22-30-15-123Z-uuid.pdf
-      url: uploaded.url,       // public, unguessable URL
-      pathname: uploaded.pathname,
-      size: file.size,
-      type: file.type,
+      message: "Thanks — we received your request.",
+      fileUrl: uploadedUrl,
+      recordKey: intakeKey,
     });
   } catch (err: any) {
+    console.error("request-audit error:", err);
     return NextResponse.json(
-      { ok: false, error: err?.message ?? "Upload failed" },
+      { ok: false, error: "Unexpected error submitting the form." },
       { status: 500 }
     );
   }
