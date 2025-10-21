@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       `submissions/${ts}.json`,
       JSON.stringify({ ts, name, email, company, message, fileKey: uploaded.pathname }),
       {
-        access: "private",
+        access: "public",
         contentType: "application/json",
         token: process.env.BLOB_READ_WRITE_TOKEN,
       }
