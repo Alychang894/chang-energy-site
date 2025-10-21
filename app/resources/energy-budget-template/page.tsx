@@ -1,6 +1,6 @@
 // app/resources/energy-budget-template/page.tsx
 import Link from "next/link";
-import FadeIn from "@/components/FadeIn";
+import FadeIn from "../../components/FadeIn";
 
 export const metadata = {
   title: "Energy Budget Template | Resources | Chang Energy",
