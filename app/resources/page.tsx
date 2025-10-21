@@ -9,19 +9,13 @@ export const metadata: Metadata = {
 };
 
 type Resource = {
-  tag: "Tool" | "Guide (PDF)" | "Template";
+  tag: "Guide (PDF)" | "Template" | "Insights";
   title: string;
   desc: string;
   href: string;
 };
 
 const items: Resource[] = [
-  {
-    tag: "Tool",
-    title: "Blended Rate Calculator",
-    desc: "Understand how your fixed and indexed blocks combine—get the real blended rate.",
-    href: "/resources/blended-rate-calculator",
-  },
   {
     tag: "Guide (PDF)",
     title: "Capacity & Transmission Playbook",
@@ -40,6 +34,12 @@ const items: Resource[] = [
     desc: "A simple template for budget vs. actuals with variance explanations.",
     href: "/resources/energy-budget-template.xlsx",
   },
+  {
+    tag: "Insights",
+    title: "Insights Library",
+    desc: "Short operator-friendly articles on procurement, PLC/NSPL, and energy budgeting.",
+    href: "/resources/insights",
+  },
 ];
 
 export default function ResourcesPage() {
@@ -47,18 +47,38 @@ export default function ResourcesPage() {
     <main className="px-6 pb-24 pt-8">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900">Resources</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+            Resources
+          </h1>
           <p className="mt-3 max-w-3xl text-gray-600">
             Tools, guides, and templates you can use immediately—no sales pitch required.
           </p>
         </FadeIn>
 
+        {/* NOTE: We removed the rate calculator intentionally to encourage outreach */}
+        <FadeIn delay={100}>
+          <div className="mt-6 rounded-2xl border border-brand/20 bg-brand/5 p-5">
+            <p className="text-sm text-gray-800">
+              Looking for a blended rate? We’ll calculate it for you and show where your budget
+              can be stabilized.{" "}
+              <a href="/contact" className="link-brand font-medium">Request a consultation →</a>
+            </p>
+          </div>
+        </FadeIn>
+
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {items.map((r, i) => (
-            <FadeIn key={r.title} delay={i * 80}>
-              <a href={r.href} className="card block p-6 hover:shadow-lg transition-shadow">
-                <span className="badge-brand">{r.tag}</span>
-                <h2 className="mt-3 text-lg font-semibold text-gray-900">{r.title}</h2>
+            <FadeIn key={r.title} delay={(i + 2) * 80}>
+              <a
+                href={r.href}
+                className="card block p-6 hover:shadow-lg transition-shadow"
+              >
+                <span className="badge-brand">
+                  {r.tag}
+                </span>
+                <h2 className="mt-3 text-lg font-semibold text-gray-900">
+                  {r.title}
+                </h2>
                 <p className="mt-2 text-gray-600">{r.desc}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm link-brand">
                   Open <span aria-hidden>→</span>
@@ -69,7 +89,7 @@ export default function ResourcesPage() {
         </div>
 
         {/* helper CTA */}
-        <FadeIn delay={400}>
+        <FadeIn delay={480}>
           <div className="mt-12 rounded-2xl border bg-white p-8 flex items-center justify-between gap-6">
             <div>
               <h3 className="text-lg font-semibold">Want a walkthrough?</h3>
@@ -77,7 +97,9 @@ export default function ResourcesPage() {
                 We’ll review your invoices and show you how to use these tools on your sites.
               </p>
             </div>
-            <a href="/contact" className="btn btn-primary px-4 py-2">Request a Consultation</a>
+            <a href="/contact" className="btn btn-primary px-4 py-2">
+              Request a Consultation
+            </a>
           </div>
         </FadeIn>
       </div>
