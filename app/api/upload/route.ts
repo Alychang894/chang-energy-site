@@ -1,118 +1,66 @@
-// app/api/request-audit/route.ts
+// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 
-// Quick slugify helper
-function slugify(input: string) {
-  return (input || "")
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-}
-
-// Today as YYYYMMDD
-function yyyymmdd(d = new Date()) {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}${m}${day}`;
-}
-
-// Sanitize a filename a bit
-function safeName(name: string) {
-  return (name || "file")
-    .replace(/\s+/g, "_")
-    .replace(/[^a-zA-Z0-9._-]/g, "");
-}
+export const runtime = "edge"; // Blob works great on Edge runtime
 
 export async function POST(req: Request) {
   try {
     const form = await req.formData();
 
-    // ----- Collect fields (mirror the form exactly) -----
+    const firstName = String(form.get("firstName") || "");
+    const lastName = String(form.get("lastName") || "");
     const company = String(form.get("company") || "");
-    const contactName = String(form.get("name") || "");
+    const title = String(form.get("title") || "");
     const email = String(form.get("email") || "");
     const phone = String(form.get("phone") || "");
-    const annualKwh = String(form.get("annual_kwh") || "");        // optional
-    const market = String(form.get("market") || "");                // PJM/ ERCOT / etc
-    const message = String(form.get("message") || "");              // optional
+    const message = String(form.get("message") || "");
 
-    // ----- Grab file (optional but recommended) -----
-    const file = form.get("bill") as unknown as File | null;
+    let billUrl: string | null = null;
+    const file = form.get("bill");
+    const now = new Date();
 
-    if (!company || !contactName || !email) {
-      return NextResponse.json(
-        { ok: false, error: "Company, name, and email are required." },
-        { status: 400 }
-      );
-    }
+    // If a file was provided, upload to Blob Storage
+    if (file && typeof file !== "string") {
+      const f = file as File;
+      const safeName = f.name?.replace(/[^\w.\-]+/g, "_") || "bill";
+      const key = `bills/${now.toISOString().replace(/[:.]/g, "-")}_${safeName}`;
 
-    const companySlug = slugify(company);
-    const today = yyyymmdd();
-    let uploadedUrl: string | null = null;
-    let uploadedKey: string | null = null;
-
-    if (file && file.size > 0) {
-      // basic server-side file size limit (10 MB)
-      const MAX_BYTES = 10 * 1024 * 1024;
-      if (file.size > MAX_BYTES) {
-        return NextResponse.json(
-          { ok: false, error: "Bill must be 10MB or less." },
-          { status: 400 }
-        );
-      }
-
-      // put() requires public access (private is a TS error)
-      const originalName = safeName((file as any).name || "bill.pdf");
-      const key = `bills/${companySlug}/${today}-${originalName}`;
-
-      const { url } = await put(key, file, {
-        access: "public",
-        token: process.env.BLOB_READ_WRITE_TOKEN,
-        contentType: file.type || "application/octet-stream",
+      const { url } = await put(key, f, {
+        access: "private", // stays private by default; change to "public" if you want public links
+        addRandomSuffix: true,
       });
 
-      uploadedUrl = url;
-      uploadedKey = key;
+      billUrl = url;
     }
 
-    // Save an intake JSON for your records
-    const intake = {
-      receivedAt: new Date().toISOString(),
+    // Persist lead metadata as JSON in Blob (simple, durable, private)
+    const leadKey = `leads/${now.toISOString().replace(/[:.]/g, "-")}_${company
+      .toLowerCase()
+      .replace(/[^\w]+/g, "-")
+      .slice(0, 60)}.json`;
+
+    const record = {
+      submittedAt: now.toISOString(),
+      firstName,
+      lastName,
       company,
-      contactName,
+      title,
       email,
       phone,
-      annualKwh,
-      market,
       message,
-      bill: uploadedUrl
-        ? { url: uploadedUrl, key: uploadedKey, size: file?.size, type: file?.type }
-        : null,
-      userAgent: req.headers.get("user-agent") || "",
-      ip: req.headers.get("x-forwarded-for") || "",
+      billUrl,
+      source: "website/contact",
     };
 
-    const intakeKey = `intake/${Date.now()}-${companySlug}.json`;
-    await put(intakeKey, JSON.stringify(intake, null, 2), {
-      access: "public",
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+    await put(leadKey, JSON.stringify(record, null, 2), {
       contentType: "application/json",
+      access: "private",
+      addRandomSuffix: false,
     });
 
-    return NextResponse.json({
-      ok: true,
-      message: "Thanks — we received your request.",
-      fileUrl: uploadedUrl,
-      recordKey: intakeKey,
-    });
+    return NextResponse.json({ ok: true });
   } catch (err: any) {
-    console.error("request-audit error:", err);
-    return NextResponse.json(
-      { ok: false, error: "Unexpected error submitting the form." },
-      { status: 500 }
-    );
+    return new NextResponse(err?.message || "Error", { status: 400 });
   }
 }
