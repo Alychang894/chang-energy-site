@@ -1,24 +1,31 @@
 // app/resources/page.tsx
 import type { Metadata } from "next";
-import FadeIn from "../../components/FadeIn";
+import Link from "next/link";
+import FadeIn from "../../components/FadeIn"; // correct depth from /app/resources
 
 export const metadata: Metadata = {
   title: "Resources | Chang Energy",
   description:
-    "Operator-friendly guides and templates for procurement, PLC/NSPL, and budgeting.",
+    "Operator-friendly playbooks and templates: capacity & transmission, block+index strategy, and energy budget tracking.",
 };
 
-// inside your resources listing
-const items = [
+type ResourceItem = {
+  kind: string;     // <- we use this as the badge
+  title: string;
+  href: string;
+  blurb: string;
+};
+
+const items: ResourceItem[] = [
   {
-    kind: "Guide",
+    kind: "Guide (Page)",
     title: "Capacity & Transmission Playbook",
     href: "/resources/capacity-transmission-playbook",
     blurb:
-      "Cut demand charges with practical PLC/NSPL tactics that won’t disrupt ops.",
+      "Cut demand charges with practical PLC/NSPL tactics that won’t disrupt operations.",
   },
   {
-    kind: "Guide",
+    kind: "Guide (Page)",
     title: "Block+Index Strategy Guide",
     href: "/resources/block-index-strategy-guide",
     blurb:
@@ -29,54 +36,62 @@ const items = [
     title: "Energy Budget Template",
     href: "/resources/energy-budget-template",
     blurb:
-      "Budget vs. actuals with variance explanations and PLC/NSPL visibility.",
+      "A simple model for budget vs. actuals with variance explanations and KPI rollups.",
   },
 ];
+
 export default function ResourcesPage() {
   return (
-    <main className="px-6 pb-24 pt-8">
+    <main className="px-6 py-12">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
             Resources
           </h1>
-          <p className="mt-3 max-w-3xl text-gray-600">
+          <p className="mt-3 max-w-3xl text-gray-700">
             Tools, guides, and templates you can use immediately—no sales pitch required.
           </p>
         </FadeIn>
 
-        {/* Contact-first banner (no public calculator) */}
-        <FadeIn delay={80}>
-          <div className="mt-6 rounded-2xl border border-brand/20 bg-brand/5 p-5">
-            <p className="text-sm text-gray-800">
-              Want your true blended rate or PLC/NSPL exposure? We’ll calculate it and show
-              where your budget can be stabilized.{" "}
-              <a href="/contact" className="link-brand font-medium">
-                Request a consultation →
-              </a>
-            </p>
-          </div>
-        </FadeIn>
-
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {items.map((r, i) => (
-            <FadeIn key={r.title} delay={(i + 2) * 80}>
-              <a
+          {items.map((r) => (
+            <FadeIn key={r.href}>
+              <Link
                 href={r.href}
-                className="card block p-6 hover:shadow-lg transition-shadow"
+                className="group block rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
               >
-                <span className="badge-brand">{r.tag}</span>
-                <h2 className="mt-3 text-lg font-semibold text-gray-900">
+                <span className="inline-flex items-center rounded-full bg-[#F97316]/10 px-2.5 py-1 text-xs font-medium text-[#F97316]">
+                  {r.kind}
+                </span>
+                <h2 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-gray-800">
                   {r.title}
                 </h2>
-                <p className="mt-2 text-gray-600">{r.desc}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm link-brand">
-                  Open <span aria-hidden>→</span>
+                <p className="mt-2 text-gray-600">{r.blurb}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#F97316]">
+                  Open →
                 </span>
-              </a>
+              </Link>
             </FadeIn>
           ))}
         </div>
+
+        {/* Callout */}
+        <FadeIn delay={150}>
+          <div className="mt-10 rounded-2xl border bg-white p-6">
+            <h3 className="text-base font-semibold text-gray-900">
+              Want a walkthrough?
+            </h3>
+            <p className="mt-1 text-gray-600">
+              We’ll review your invoices and show you how to use these tools on your sites.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-4 inline-flex items-center rounded-lg bg-gray-900 px-4 py-2 text-[15px] font-semibold text-white hover:bg-black/90"
+            >
+              Request a Consultation
+            </Link>
+          </div>
+        </FadeIn>
       </div>
     </main>
   );
