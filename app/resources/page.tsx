@@ -8,37 +8,30 @@ export const metadata: Metadata = {
     "Operator-friendly guides and templates for procurement, PLC/NSPL, and budgeting.",
 };
 
+// inside your resources listing
 const items = [
   {
-    tag: "Guide (PDF)",
+    kind: "Guide",
     title: "Capacity & Transmission Playbook",
-    desc:
-      "Cut demand charges with practical PLC/NSPL tactics and short, site-friendly curtailment windows—no downtime drama.",
-    href: "/resources/capacity-transmission",
+    href: "/resources/capacity-transmission-playbook",
+    blurb:
+      "Cut demand charges with practical PLC/NSPL tactics that won’t disrupt ops.",
   },
   {
-    tag: "Guide (PDF)",
+    kind: "Guide",
     title: "Block+Index Strategy Guide",
-    desc:
-      "When fixed is safer, when index is cheaper—and how to size hedge blocks to real usage patterns.",
-    href: "/resources/block-index",
+    href: "/resources/block-index-strategy-guide",
+    blurb:
+      "When fixed is safer, when index is cheaper—and how to size blocks by risk.",
   },
   {
-    tag: "Template",
+    kind: "Template",
     title: "Energy Budget Template",
-    desc:
-      "A clean Excel model for budget vs. actuals with variance notes and a place to show verified savings.",
     href: "/resources/energy-budget-template",
-  },
-  {
-    tag: "Insights",
-    title: "Insights Library",
-    desc:
-      "Quick, operator-friendly reads on procurement, PLC/NSPL, and energy budgeting.",
-    href: "/resources/insights",
+    blurb:
+      "Budget vs. actuals with variance explanations and PLC/NSPL visibility.",
   },
 ];
-
 export default function ResourcesPage() {
   return (
     <main className="px-6 pb-24 pt-8">
