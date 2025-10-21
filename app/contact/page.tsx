@@ -41,22 +41,22 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium">First name</label>
-              <input name="firstName" required className="mt-1 input" placeholder="Alyssa" />
+              <input name="firstName" required className="mt-1 input" placeholder="First Name" />
             </div>
             <div>
               <label className="block text-sm font-medium">Last name</label>
-              <input name="lastName" required className="mt-1 input" placeholder="Chang" />
+              <input name="lastName" required className="mt-1 input" placeholder="Last Name" />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium">Company</label>
-              <input name="company" required className="mt-1 input" placeholder="Chang Energy Group" />
+              <input name="company" required className="mt-1 input" placeholder="Business Name" />
             </div>
             <div>
               <label className="block text-sm font-medium">Role / Title</label>
-              <input name="title" className="mt-1 input" placeholder="Operations Director" />
+              <input name="title" className="mt-1 input" placeholder="Title" />
             </div>
           </div>
 
