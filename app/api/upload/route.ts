@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     // Upload the bill file (private by default)
     const uploaded = await put(key, file, {
-      access: "private",
+      access: "public",
       token: process.env.BLOB_READ_WRITE_TOKEN, // set in Vercel → Settings → Environment Variables
     });
 
