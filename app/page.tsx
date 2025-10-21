@@ -1,6 +1,6 @@
 // app/industries/page.tsx
 import type { Metadata } from "next";
-import FadeIn from "../../components/FadeIn";
+import FadeIn from "../../components/FadeIn.tsx";
 
 export const metadata: Metadata = {
   title: "Industries | Chang Energy",
