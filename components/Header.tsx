@@ -23,32 +23,35 @@ export default function Header() {
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo.png"          // change to /logo.png if needed
-              alt="Chang Energy"
-              width={32}
-              height={32}
+              src="/images/logo.png"               // <-- correct public path
+              alt="Chang Energy logo"
+              width={36}
+              height={36}
               priority
+              className="h-9 w-9"
             />
-            <span className="text-base font-semibold tracking-tight">
+            <span className="text-lg font-semibold tracking-tight">
               Chang Energy
             </span>
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-8 md:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-[15px] font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-gray-900"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-[15px] font-medium transition-colors ${
+                    active ? "text-gray-900" : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
 
             <Link
               href="/contact"
@@ -81,18 +84,21 @@ export default function Header() {
         <div className="border-t bg-white md:hidden">
           <div className="mx-auto max-w-7xl px-6 py-4">
             <div className="flex flex-col gap-4">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-[15px] font-medium ${
-                    pathname === item.href ? "text-gray-900" : "text-gray-700"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {nav.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={`text-[15px] font-medium ${
+                      active ? "text-gray-900" : "text-gray-700"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
 
               <Link
                 href="/contact"
