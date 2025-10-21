@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       const key = `bills/${now.toISOString().replace(/[:.]/g, "-")}_${safeName}`;
 
       const { url } = await put(key, f, {
-        access: "private", // stays private by default; change to "public" if you want public links
+        access: "public", // stays private by default; change to "public" if you want public links
         addRandomSuffix: true,
       });
 
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
 
     await put(leadKey, JSON.stringify(record, null, 2), {
       contentType: "application/json",
-      access: "private",
+      access: "public",
       addRandomSuffix: false,
     });
 
