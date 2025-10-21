@@ -1,6 +1,6 @@
 // app/resources/capacity-transmission-playbook/page.tsx
 import Link from "next/link";
-import FadeIn from "../../components/FadeIn";
+import FadeIn from "../../../components/FadeIn";
 
 export const metadata = {
   title: "Capacity & Transmission Playbook | Resources | Chang Energy",
