@@ -23,7 +23,7 @@ export default function Header() {
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo.svg"          // change to /logo.png if needed
+              src="/logo.png"          // change to /logo.png if needed
               alt="Chang Energy"
               width={32}
               height={32}
