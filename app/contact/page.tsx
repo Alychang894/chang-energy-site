@@ -2,151 +2,187 @@
 "use client";
 
 import { useState } from "react";
-import FadeIn from "../../components/FadeIn";
 
-type State =
-  | { status: "idle" }
-  | { status: "uploading" }
-  | { status: "success"; url: string }
-  | { status: "error"; message: string };
+const markets = [
+  "PJM",
+  "ERCOT",
+  "MISO",
+  "NYISO",
+  "ISO-NE",
+  "CAISO",
+  "Other",
+];
 
 export default function ContactPage() {
-  const [state, setState] = useState<State>({ status: "idle" });
+  const [submitting, setSubmitting] = useState(false);
+  const [result, setResult] = useState<{ ok: boolean; message?: string; error?: string } | null>(null);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    setSubmitting(true);
+    setResult(null);
 
-    const file = formData.get("bill") as File | null;
-    if (!file || file.size === 0) {
-      return setState({ status: "error", message: "Please attach a recent bill (PDF or image)." });
-    }
+    const formEl = e.currentTarget;
+    const fd = new FormData(formEl);
 
     try {
-      setState({ status: "uploading" });
-      const res = await fetch("/api/upload", {
+      const res = await fetch("/api/request-audit", {
         method: "POST",
-        body: formData,
+        body: fd,
       });
 
-      if (!res.ok) throw new Error(`Upload failed (${res.status})`);
-      const data = (await res.json()) as { ok: boolean; url?: string; message?: string };
-      if (!data.ok) throw new Error(data.message || "Upload failed");
-
-      setState({ status: "success", url: data.url! });
-      form.reset();
+      const data = await res.json();
+      if (!res.ok || !data?.ok) {
+        setResult({ ok: false, error: data?.error || "Failed to submit." });
+      } else {
+        setResult({ ok: true, message: data?.message || "Submitted!" });
+        formEl.reset();
+      }
     } catch (err: any) {
-      setState({ status: "error", message: err.message || "Upload failed" });
+      setResult({ ok: false, error: "Network error. Please try again." });
+    } finally {
+      setSubmitting(false);
     }
   }
 
   return (
-    <main className="bg-gray-50 min-h-screen">
-      <div className="relative isolate">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
-        <div className="relative mx-auto max-w-3xl px-6 pt-16 pb-6">
-          <FadeIn>
-            <h1 className="text-4xl font-bold text-gray-900">Request a Strategy Call</h1>
-            <p className="mt-3 text-lg text-gray-600">
-              Send a recent invoice and a quick note. We’ll review and come prepared with
-              ideas to stabilize costs and cut risk.
-            </p>
-          </FadeIn>
-        </div>
-      </div>
+    <main className="px-6 py-14">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-3xl font-bold">Request a Strategy Call</h1>
+        <p className="mt-2 text-gray-600">
+          Upload a recent utility bill and tell us about your sites. We’ll audit spend,
+          check PLC/NSPL exposure, and outline a plan to stabilize costs.
+        </p>
 
-      <div className="mx-auto max-w-3xl px-6 pb-20">
-        <FadeIn>
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-2xl border bg-white p-8 shadow-sm space-y-6"
-          >
-            <div className="grid md:grid-cols-2 gap-4">
+        {/* Card */}
+        <div className="mt-8 rounded-2xl border bg-white p-6 shadow-sm">
+          <form onSubmit={onSubmit} encType="multipart/form-data" className="grid gap-5">
+            {/* Company */}
+            <div>
+              <label className="block text-sm font-medium">Company *</label>
+              <input
+                name="company"
+                required
+                placeholder="Acme Cold Storage"
+                className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
+              />
+            </div>
+
+            {/* Name / Email */}
+            <div className="grid gap-5 md:grid-cols-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
+                <label className="block text-sm font-medium">Your Name *</label>
                 <input
                   name="name"
                   required
-                  className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                  placeholder="Jane Smith"
+                  placeholder="Jane Doe"
+                  className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Company</label>
+                <label className="block text-sm font-medium">Work Email *</label>
                 <input
-                  name="company"
-                  className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                  placeholder="Acme Foods"
-                />
-              </div>
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input
-                  name="email"
                   type="email"
+                  name="email"
                   required
-                  className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                  placeholder="jane@company.com"
+                  placeholder="jane@acme.com"
+                  className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
                 />
               </div>
             </div>
 
+            {/* Phone / Market */}
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label className="block text-sm font-medium">Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="(555) 555-5555"
+                  className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Market / ISO</label>
+                <select
+                  name="market"
+                  className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Select market
+                  </option>
+                  {markets.map((m) => (
+                    <option key={m} value={m}>
+                      {m}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Annual kWh */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Message</label>
+              <label className="block text-sm font-medium">
+                Annual kWh (rough estimate)
+              </label>
+              <input
+                name="annual_kwh"
+                placeholder="e.g. 12,000,000"
+                className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
+              />
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="block text-sm font-medium">
+                Notes (sites, suppliers, goals)
+              </label>
               <textarea
                 name="message"
                 rows={4}
-                className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                placeholder="What problems are you running into?"
+                placeholder="Share anything helpful about your footprint."
+                className="mt-1 w-full rounded-md border px-3 py-2 outline-none focus:ring-2"
               />
             </div>
 
+            {/* Bill upload */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Upload a recent bill (PDF or image)
+              <label className="block text-sm font-medium">
+                Upload a recent bill (PDF, PNG, JPG — max 10MB)
               </label>
               <input
-                name="bill"
                 type="file"
-                accept=".pdf,image/*"
-                required
-                className="mt-1 block w-full text-sm text-gray-700 file:mr-4 file:rounded-md file:border file:bg-white file:px-3 file:py-2 file:text-gray-700 hover:file:bg-gray-50"
+                name="bill"
+                accept=".pdf,.png,.jpg,.jpeg"
+                className="mt-1 w-full rounded-md border px-3 py-2 file:mr-3 file:rounded file:border file:bg-gray-50 file:px-3 file:py-2"
               />
-              <p className="mt-1 text-xs text-gray-500">
-                We’ll store it privately and reference it during your review.
-              </p>
             </div>
 
+            {/* Submit */}
             <div className="flex items-center gap-3">
               <button
                 type="submit"
-                disabled={state.status === "uploading"}
-                className="btn btn-primary disabled:opacity-60"
+                disabled={submitting}
+                className="btn btn-primary disabled:opacity-60 rounded-md bg-slate-900 px-5 py-2 text-white hover:bg-slate-800"
               >
-                {state.status === "uploading" ? "Uploading…" : "Send & Book My Call"}
+                {submitting ? "Submitting..." : "Send Request"}
               </button>
-              <a
-                href="https://calendly.com" // <- swap with your scheduler
-                target="_blank"
-                className="btn btn-outline"
-              >
-                Or pick a time
-              </a>
+              {result?.ok && (
+                <span className="text-sm text-green-700">{result.message}</span>
+              )}
+              {result?.ok === false && (
+                <span className="text-sm text-red-600">{result.error}</span>
+              )}
             </div>
-
-            {state.status === "success" && (
-              <div className="rounded-md bg-green-50 p-3 text-sm text-green-800">
-                Thanks! Your file was received. (Private URL: {state.url})
-              </div>
-            )}
-            {state.status === "error" && (
-              <div className="rounded-md bg-red-50 p-3 text-sm text-red-800">
-                {state.message}
-              </div>
-            )}
           </form>
-        </FadeIn>
+        </div>
+
+        {/* FYI */}
+        <p className="mt-4 text-xs text-gray-500">
+          By submitting, you agree to our processing of the information you provide to
+          evaluate savings opportunities and contact you about your energy strategy.
+        </p>
       </div>
     </main>
   );
