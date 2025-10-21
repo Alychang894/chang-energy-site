@@ -1,28 +1,23 @@
+// app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Header from "../components/Header";
 
 export const metadata: Metadata = {
-  title: "Chang Energy — Enterprise Energy Strategy",
-  description: "We turn volatile energy markets into predictable budgets for large operators.",
-  metadataBase: new URL("https://www.changenergygroup.com"),
-} as const;
+  title: "Chang Energy",
+  description: "Smarter energy procurement for modern operators.",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen antialiased text-gray-900">
-        <header className="sticky top-0 z-30 bg-white/70 backdrop-blur border-b">
-          <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="font-semibold text-lg">Chang Energy</Link>
-            <div className="flex gap-6 text-sm">
-              <Link href="/solutions">Solutions</Link>
-              <Link href="/industries">Industries</Link>
-              <Link href="/resources">Resources</Link>
-              <Link href="/contact" className="btn btn-primary">Book a Strategy Call</Link>
-            </div>
-          </nav>
-        </header>
+      <body className="min-h-dvh bg-white text-gray-900">
+        <Header />
+        <main>{children}</main>
+      </body>
+    </html>
+  );
+}
 
         {/* Full-width main so hero sections can be edge-to-edge */}
         <main>{children}</main>
