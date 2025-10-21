@@ -5,105 +5,106 @@ import FadeIn from "../../components/FadeIn";
 export const metadata: Metadata = {
   title: "Industries | Chang Energy",
   description:
-    "Energy strategies for cold storage, manufacturing, multi-site chains, and healthcare—cost control that fits real operations.",
+    "Strategies that match how your sites actually run—so budgets stay predictable without slowing production or service.",
 };
 
-function Bullet({ children }: { children: React.ReactNode }) {
-  return <li className="flex gap-2 text-sm text-gray-700"><span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-500" />{children}</li>;
-}
+type Item = {
+  title: string;
+  body: string;
+  bullets: string[];
+};
+
+const sections: Item[] = [
+  {
+    title: "Cold Storage",
+    body:
+      "PLC management and demand strategy that respects food safety and warehouse reality—alerts when it matters, quiet when it doesn’t.",
+    bullets: [
+      "Peak prediction & brief, practical curtailment windows",
+      "Block+index sizing that fits seasonal load profiles",
+      "Site scorecards and verified savings",
+    ],
+  },
+  {
+    title: "Manufacturing",
+    body:
+      "Procurement and capacity strategy tied to production schedules and shift patterns—cost control without disrupting throughput.",
+    bullets: [
+      "Hedge/coverage aligned to operational risk tolerance",
+      "PLC/NSPL reduction playbooks that avoid downtime",
+      "Budget tracking & variance explanations for finance",
+    ],
+  },
+  {
+    title: "Multi-Site Chains",
+    body:
+      "Consistent pricing, clear reporting, and fast onboarding for new locations.",
+    bullets: [
+      "Portfolio-level contracts with local constraints handled",
+      "Operator-friendly dashboards & KPI scorecards",
+      "Invoice QA and exception reporting each month",
+    ],
+  },
+  {
+    title: "Healthcare",
+    body:
+      "Reliability first. We reduce demand charges and audit billing while protecting patient-critical operations.",
+    bullets: [
+      "Conservative risk posture & capacity planning",
+      "Tariff review, rider optimization, and recoveries",
+      "Budget confidence for multi-facility systems",
+    ],
+  },
+];
 
 export default function IndustriesPage() {
   return (
-    <main className="bg-gray-50 min-h-screen">
-      <div className="relative isolate">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
-        <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-6">
-          <FadeIn>
-            <h1 className="text-4xl font-bold text-gray-900">Industries</h1>
-            <p className="mt-3 max-w-3xl text-lg text-gray-600">
-              We build strategies that match how your sites actually run—so your budget stays
-              predictable without slowing production or service.
-            </p>
-          </FadeIn>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 pb-20 grid gap-8 md:grid-cols-2">
-        {/* Cold Storage */}
+    <main className="px-6 pb-24 pt-8">
+      <div className="mx-auto max-w-7xl">
         <FadeIn>
-          <section className="rounded-2xl border bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-900">Cold Storage</h2>
-            <p className="mt-3 text-gray-700">
-              PLC management and demand strategy that respects food safety
-              and warehouse reality—alerts when it matters, quiet when it doesn’t.
-            </p>
-            <ul className="mt-4 space-y-2">
-              <Bullet>Peak prediction & brief, practical curtailment windows</Bullet>
-              <Bullet>Block+index sizing that fits seasonal load profiles</Bullet>
-              <Bullet>Site scorecards and verified savings</Bullet>
-            </ul>
-          </section>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900">Industries</h1>
+          <p className="mt-3 max-w-3xl text-gray-600">
+            We build strategies that match how your sites actually run—so your budget stays
+            predictable without slowing production or service.
+          </p>
         </FadeIn>
 
-        {/* Manufacturing */}
-        <FadeIn delay={100}>
-          <section className="rounded-2xl border bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-900">Manufacturing</h2>
-            <p className="mt-3 text-gray-700">
-              Procurement and capacity strategy tied to production schedules and shift patterns—cost
-              control without disrupting throughput.
-            </p>
-            <ul className="mt-4 space-y-2">
-              <Bullet>Hedge/coverage aligned to operational risk tolerance</Bullet>
-              <Bullet>PLC/NSPL reduction playbooks that avoid downtime</Bullet>
-              <Bullet>Budget tracking & variance explanations for finance</Bullet>
-            </ul>
-          </section>
-        </FadeIn>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {sections.map((s, i) => (
+            <FadeIn key={s.title} delay={i * 80}>
+              <article className="card p-7">
+                <div className="flex items-start gap-3">
+                  <span className="rounded-xl bg-brand/10 p-2 text-brand">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <h2 className="text-lg font-semibold">{s.title}</h2>
+                    <p className="mt-2 text-gray-600">{s.body}</p>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                      {s.bullets.map((b) => (
+                        <li key={b}>• {b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
 
-        {/* Multi-Site / QSR / Retail */}
-        <FadeIn delay={150}>
-          <section className="rounded-2xl border bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-900">Multi-Site Chains</h2>
-            <p className="mt-3 text-gray-700">
-              Consistent pricing, clear reporting, and fast onboarding for new locations.
+        {/* CTA */}
+        <FadeIn delay={400}>
+          <div className="mt-12 rounded-2xl border bg-white p-8 text-center">
+            <h3 className="text-lg font-semibold">Want a quick benchmark?</h3>
+            <p className="mt-1 text-gray-600">
+              Send a recent invoice and load profile. We’ll show where costs can be stabilized or lowered.
             </p>
-            <ul className="mt-4 space-y-2">
-              <Bullet>Portfolio-level contracts with local constraints handled</Bullet>
-              <Bullet>Operator-friendly dashboards & KPI scorecards</Bullet>
-              <Bullet>Invoice QA and exception reporting each month</Bullet>
-            </ul>
-          </section>
-        </FadeIn>
-
-        {/* Healthcare */}
-        <FadeIn delay={200}>
-          <section className="rounded-2xl border bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-900">Healthcare</h2>
-            <p className="mt-3 text-gray-700">
-              Reliability first. We reduce demand charges and audit billing while protecting patient-
-              critical operations.
-            </p>
-            <ul className="mt-4 space-y-2">
-              <Bullet>Conservative risk posture & capacity planning</Bullet>
-              <Bullet>Tariff review, rider optimization, and recoveries</Bullet>
-              <Bullet>Budget confidence for multi-facility systems</Bullet>
-            </ul>
-          </section>
-        </FadeIn>
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 pb-20">
-        <FadeIn delay={250}>
-          <section className="rounded-2xl border bg-white p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900">Want a quick benchmark?</h3>
-              <p className="mt-1 text-gray-600">
-                Send a recent invoice and load profile. We’ll show where costs can be stabilized or lowered.
-              </p>
-            </div>
-            <a className="btn btn-primary" href="/contact">Start My Audit</a>
-          </section>
+            <a href="/contact" className="mt-5 inline-flex btn btn-primary px-4 py-2">
+              Start My Audit
+            </a>
+          </div>
         </FadeIn>
       </div>
     </main>
