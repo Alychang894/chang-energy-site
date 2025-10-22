@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.sitemap {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.changenergygroup.com";
 
   return [
