@@ -1,7 +1,5 @@
 // app/sitemap.xml/route.ts
-export const revalidate = 3600; // 1h cache
-
-const BASE = "https://www.changenergygroup.com";
+const BASE = "https://changenergygroup.com"; // <-- keep this exact domain
 
 export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -15,7 +13,6 @@ export async function GET() {
 </sitemapindex>`;
 
   return new Response(xml, {
-    status: 200,
     headers: { "Content-Type": "application/xml; charset=utf-8" },
   });
 }
