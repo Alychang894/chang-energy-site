@@ -2,6 +2,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Header from "../components/Header";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Chang Energy | Commercial Energy Optimization in the PJM Region",
@@ -124,42 +125,64 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const siteUrl = "https://changenergygroup.com";
+  const logoUrl = `${siteUrl}/favicon.png`; // or switch to /images/logo.png if you prefer
+
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        {/* Optional Structured Data (for SEO crawlers like Google, Bing, LinkedIn) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Chang Energy Group",
-              url: "https://changenergygroup.com",
-              logo: "https://changenergygroup.com/favicon.png",
-              description:
-                "Chang Energy helps commercial and industrial clients in the PJM region lower electricity costs through transparent procurement and strategic energy management.",
-              sameAs: [
-                "https://www.linkedin.com/company/chang-energy-group/",
-                "https://twitter.com/changenergy",
-              ],
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+1-267-340-8300",
-                contactType: "Customer Service",
-                areaServed: "US",
-                availableLanguage: "English",
-              },
-            }),
-          }}
-        />
-      </head>
       <body className="min-h-dvh bg-white text-gray-900 antialiased">
+        {/* ===== Global JSON-LD (SEO) ===== */}
+        <Script id="schema-organization" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Chang Energy Group",
+            url: siteUrl,
+            logo: logoUrl,
+            description:
+              "Chang Energy helps commercial and industrial clients in the PJM region lower electricity costs through transparent procurement and strategic energy management.",
+            sameAs: [
+              "https://www.linkedin.com/company/chang-energy-group/",
+              "https://twitter.com/changenergy",
+            ],
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+1-267-340-8300",
+              contactType: "Customer Service",
+              areaServed: "US",
+              availableLanguage: "English",
+            },
+            areaServed: [
+              "PJM Interconnection Region",
+              "United States",
+              "Pennsylvania",
+              "New Jersey",
+              "Maryland",
+              "Delaware",
+              "Virginia",
+              "Ohio",
+              "Illinois",
+              "Indiana",
+            ],
+          })}
+        </Script>
+
+        <Script id="schema-website" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Chang Energy",
+            url: siteUrl,
+            potentialAction: {
+              "@type": "SearchAction",
+              target: `${siteUrl}/search?q={search_term_string}`,
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </Script>
+        {/* ===== End Global JSON-LD ===== */}
+
         {/* Sticky header */}
         <Header />
 
