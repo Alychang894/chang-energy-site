@@ -1,6 +1,7 @@
 // app/solutions/page.tsx
 import type { Metadata } from "next";
 import FadeIn from "../../components/FadeIn";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Solutions | Chang Energy",
@@ -70,8 +71,81 @@ const solutions = [
 ];
 
 export default function SolutionsPage() {
+  const siteUrl = "https://changenergygroup.com";
+
   return (
     <div className="bg-white">
+      {/* JSON-LD: Services list */}
+      <Script id="schema-services" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "Service",
+              name: "Energy Procurement & Risk Strategy",
+              url: `${siteUrl}/solutions`,
+              description:
+                "Block+index, fixed, or capped procurement tailored to load profiles and risk tolerance. Competitive supplier RFPs.",
+              areaServed: "PJM Interconnection Region",
+              serviceType: "Energy procurement services",
+              keywords: [
+                "Energy procurement services",
+                "Energy contract optimization",
+                "Commercial energy rates",
+                "Business energy audit",
+                "Reducing energy costs",
+              ],
+            },
+            {
+              "@type": "Service",
+              name: "Capacity & Transmission Optimization (PLC/NSPL)",
+              url: `${siteUrl}/solutions`,
+              description:
+                "Peak prediction, pragmatic curtailment, and year-over-year PLC/NSPL tracking to lower demand charges.",
+              areaServed: "PJM Interconnection Region",
+              serviceType: "Demand response & capacity management",
+              keywords: [
+                "PJM peak demand charges",
+                "Demand response programs",
+                "Peak demand management",
+                "PJM energy pricing analysis",
+              ],
+            },
+            {
+              "@type": "Service",
+              name: "Utility Bill Audit & Recovery",
+              url: `${siteUrl}/solutions`,
+              description:
+                "Invoice QA, tariff/rider review, pass-through validation, and documented recoveries.",
+              areaServed: "United States",
+              serviceType: "Energy bill auditing",
+              keywords: [
+                "Energy billing solutions",
+                "Commercial utility costs",
+                "Energy bill auditing",
+                "3–7% typical recoveries",
+              ],
+            },
+            {
+              "@type": "Service",
+              name: "Data, KPI & Executive Reporting",
+              url: `${siteUrl}/solutions`,
+              description:
+                "Dashboards for budget vs. actuals, hedge position, PLC exposure, and verified savings for finance and operations.",
+              areaServed: "United States",
+              serviceType: "Energy reporting and monitoring",
+              keywords: [
+                "Energy monitoring systems",
+                "Energy rate analysis",
+                "Energy consumption reduction",
+                "Energy efficiency for businesses",
+              ],
+            },
+          ],
+        })}
+      </Script>
+
       {/* Header block */}
       <section className="relative border-b bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-orange-600/10">
         <div className="mx-auto max-w-7xl px-6 py-14">
@@ -105,7 +179,6 @@ export default function SolutionsPage() {
             {solutions.map((s, i) => (
               <FadeIn key={s.title} delay={i * 80}>
                 <article className="group relative overflow-hidden rounded-2xl border bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg">
-                  {/* orange accent bar */}
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600" />
                   <div className="flex items-start gap-4">
                     <div className="rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 p-3 text-white shadow-md ring-1 ring-white/10">
@@ -131,7 +204,6 @@ export default function SolutionsPage() {
             ))}
           </div>
 
-          {/* CTA */}
           <FadeIn delay={400}>
             <div className="mt-10 rounded-2xl border bg-gradient-to-br from-orange-500/10 to-amber-500/10 p-6">
               <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
