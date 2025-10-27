@@ -2,48 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: 255 255 255;
-}
-
+/* ---- Base ---- */
+:root { --bg: 255 255 255; }
 html, body { height: 100%; }
 body { background: rgb(var(--bg)); }
 
-/* Typography */
-.h1{ @apply text-4xl md:text-6xl font-semibold tracking-tight; }
-.h2{ @apply text-2xl md:text-3xl font-semibold; }
-.p { @apply text-base text-gray-600 leading-relaxed; }
-.btn{ @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium shadow-sm; }
-.btn-primary { @apply bg-orange-600 text-white hover:bg-orange-700; }
-.btn-outline { @apply border border-gray-300 hover:bg-gray-50; }
-/* Brand theming helpers */
-:root {
-  --brand: #F97316;
-}
-::selection {
-  background: rgba(249, 115, 22, .15);
-}
-.brand-ring {
-  @apply ring-brand/30 focus:ring-2 focus:ring-offset-0;
-}
+/* ---- Typography helpers ---- */
+.h1 { @apply text-4xl md:text-6xl font-semibold tracking-tight; }
+.h2 { @apply text-2xl md:text-3xl font-semibold; }
+.p  { @apply text-base text-gray-600 leading-relaxed; }
+
+/* ---- Buttons (single source of truth) ---- */
 .btn {
-  @apply inline-flex items-center justify-center rounded-lg font-semibold transition-colors;
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-3
+         font-medium shadow-sm transition-colors;
 }
 .btn-primary {
-  @apply btn bg-brand text-white hover:bg-brand-600;
+  /* uses brand palette from tailwind.config */
+  @apply bg-brand-600 text-white hover:bg-brand-700;
 }
 .btn-outline {
-  @apply btn border border-gray-300 text-gray-800 hover:border-gray-400;
+  @apply border border-gray-300 text-gray-800 hover:border-gray-400 hover:bg-gray-50;
 }
-.badge {
-  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+
+/* ---- Brand helpers ---- */
+::selection { background: rgba(249, 115, 22, 0.15); } /* brand-500-ish tint */
+
+.brand-ring {
+  /* replace ring-brand/30 (not generated) with a concrete shade */
+  @apply ring-brand-300 focus:ring-2 focus:ring-offset-0;
 }
-.badge-brand {
-  @apply badge bg-brand/10 text-brand;
-}
-.link-brand {
-  @apply text-brand hover:text-brand-600;
-}
-.card {
-  @apply bg-white rounded-2xl shadow-card border border-gray-100;
-}
+
+/* ---- Badges ---- */
+.badge { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium; }
+.badge-brand { @apply badge bg-brand-100 text-brand-700; }
+
+/* ---- Links ---- */
+.link-brand { @apply text-brand-600 hover:text-brand-700; }
+
+/* ---- Card ---- */
+.card { @apply bg-white rounded-2xl border border-gray-100 shadow-card; }
