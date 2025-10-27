@@ -14,8 +14,8 @@ body { background: rgb(var(--bg)); }
 .h2{ @apply text-2xl md:text-3xl font-semibold; }
 .p { @apply text-base text-gray-600 leading-relaxed; }
 .btn{ @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium shadow-sm; }
-.btn-primary{ @apply bg-brand-600 text-white hover:bg-brand-700; }
-.btn-outline{ @apply border border-gray-300 hover:bg-gray-50; }
+.btn-primary { @apply bg-orange-600 text-white hover:bg-orange-700; }
+.btn-outline { @apply border border-gray-300 hover:bg-gray-50; }
 /* Brand theming helpers */
 :root {
   --brand: #F97316;
