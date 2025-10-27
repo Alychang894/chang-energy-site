@@ -3,6 +3,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
+import Prose from "@/components/blog/Prose";
+import QuoteBlock from "@/components/blog/QuoteBlock";
+import QuickStat from "@/components/blog/QuickStat";
+import HighlightList from "@/components/blog/HighlightList";
+
+<Prose>
+  <p>Intro paragraph…</p>
+
+  <QuoteBlock>
+    “One bad PLC hour can lock in inflated costs for 12 months — the plan is to
+    make that hour predictable and boring.”
+  </QuoteBlock>
+
+  <HighlightList
+    title="Three moves that work in PJM"
+    items={[
+      "Predict peaks with real-time forecasts (don’t spam alerts).",
+      "Short, safe curtailment windows with crisp start/stop steps.",
+      "Track PLC/NSPL by site and attribute savings year over year.",
+    ]}
+  />
+
+  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+    <QuickStat label="PLC Reduction" value="14–22%" sublabel="Typical YoY across portfolios" trend="down" />
+    <QuickStat label="Curtailment Window" value="60–120 min" sublabel="Most events" trend="flat" />
+  </div>
+
+  <p>Continue article…</p>
+</Prose>
 
 export const metadata: Metadata = {
   title: "PJM Peak Demand Charges: 3 Moves to Cut PLC Without Disrupting Ops",
