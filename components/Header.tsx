@@ -10,6 +10,7 @@ const nav = [
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
   { href: "/resources", label: "Resources" },
+  { href: "/blog", label: "Blog" }, // ← add this
 ];
 
 export default function Header() {
