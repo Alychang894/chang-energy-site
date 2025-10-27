@@ -1,5 +1,7 @@
 // components/blog/Prose.tsx
-import { ReactNode } from "react";
+"use client";
+
+import React from "react";
 
 export default function Prose({ children }: { children: ReactNode }) {
   return (
