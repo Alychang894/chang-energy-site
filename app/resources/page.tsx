@@ -1,6 +1,7 @@
 // app/resources/page.tsx
 import type { Metadata } from "next";
 import FadeIn from "../../components/FadeIn";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Resources | Chang Energy",
@@ -36,8 +37,56 @@ const resources = [
 ];
 
 export default function ResourcesPage() {
+  const siteUrl = "https://changenergygroup.com";
+
   return (
     <div className="bg-white">
+      {/* JSON-LD: Resources listing */}
+      <Script id="schema-resources" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "TechArticle",
+              headline: "Capacity & Transmission Playbook",
+              url: `${siteUrl}/resources/capacity-transmission-playbook`,
+              about: "PLC/NSPL tactics, alerts, curtailment windows, and tracking.",
+              keywords: [
+                "PJM energy efficiency programs",
+                "Peak demand management",
+                "PJM peak demand charges",
+              ],
+            },
+            {
+              "@type": "TechArticle",
+              headline: "Block+Index Strategy Guide",
+              url: `${siteUrl}/resources/block-index-strategy-guide`,
+              about:
+                "How to balance fixed and index exposure and size blocks by risk.",
+              keywords: [
+                "Energy contract optimization",
+                "Commercial energy rates",
+                "Energy rate analysis",
+              ],
+            },
+            {
+              "@type": "HowTo",
+              name: "Energy Budget Template",
+              url: `${siteUrl}/resources/energy-budget-template`,
+              description:
+                "Simple template to track budget vs. actuals with variance notes.",
+              totalTime: "PT10M",
+              step: [
+                { "@type": "HowToStep", name: "Enter monthly usage & rates" },
+                { "@type": "HowToStep", name: "Track actuals and PLC costs" },
+                { "@type": "HowToStep", name: "Record variance explanations" },
+              ],
+            },
+          ],
+        })}
+      </Script>
+
       <section className="border-b bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-orange-600/10">
         <div className="mx-auto max-w-7xl px-6 py-14">
           <FadeIn>
