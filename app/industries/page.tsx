@@ -1,6 +1,7 @@
 // app/industries/page.tsx
 import type { Metadata } from "next";
 import FadeIn from "../../components/FadeIn";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Industries | Chang Energy",
@@ -52,8 +53,37 @@ const groups = [
 ];
 
 export default function IndustriesPage() {
+  const siteUrl = "https://changenergygroup.com";
+
   return (
     <div className="bg-white">
+      {/* JSON-LD: Industry Service + Audience */}
+      <Script id="schema-industries" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Commercial & Industrial Energy Management",
+          url: `${siteUrl}/industries`,
+          description:
+            "Energy strategies for cold storage, manufacturing, multi-site chains, healthcare, offices, and restaurants.",
+          areaServed: "PJM Interconnection Region",
+          audience: [
+            { "@type": "BusinessAudience", name: "Manufacturing companies" },
+            { "@type": "BusinessAudience", name: "Cold storage & warehousing" },
+            { "@type": "BusinessAudience", name: "Multi-site retail & restaurants" },
+            { "@type": "BusinessAudience", name: "Healthcare systems" },
+            { "@type": "BusinessAudience", name: "Commercial offices" },
+          ],
+          keywords: [
+            "Energy management for manufacturers",
+            "Energy solutions for restaurants",
+            "Energy efficiency for warehouses",
+            "Energy for commercial buildings",
+            "PJM commercial energy services",
+          ],
+        })}
+      </Script>
+
       <section className="border-b bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-orange-600/10">
         <div className="mx-auto max-w-7xl px-6 py-14">
           <FadeIn>
