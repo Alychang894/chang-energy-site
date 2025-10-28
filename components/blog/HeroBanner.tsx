@@ -1,35 +1,69 @@
-// components/blog/HeroBanner.tsx
+"use client";
+
 import Image from "next/image";
+
+type HeroBannerProps = {
+  title: string;
+  kicker?: string;
+  date?: string;
+  readTime?: string;
+  image?: string;
+  imageAlt?: string;
+};
 
 export default function HeroBanner({
   title,
-  kicker,
-  byline,
-  image = "/images/hero-power.jpg",
-}: {
-  title: string;
-  kicker?: string;
-  byline?: string;
-  image?: string;
-}) {
+  kicker = "Energy Insights",
+  date,
+  readTime,
+  image,
+  imageAlt = "",
+}: HeroBannerProps) {
+  const hasImage = Boolean(image);
+
   return (
-    <header className="relative overflow-hidden rounded-2xl border bg-gray-900 text-white">
-      <Image
-        src={image}
-        alt=""
-        fill
-        priority
-        className="object-cover opacity-50"
-      />
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10" />
-        <div className="relative px-6 py-14 md:px-10 md:py-16">
-          {kicker ? <div className="kicker">{kicker}</div> : null}
-          <h1 className="max-w-3xl text-3xl font-bold leading-tight md:text-4xl">
+    <header className="relative overflow-hidden">
+      {/* Featured image layer */}
+      {hasImage && (
+        <div className="relative h-[220px] md:h-[320px]">
+          <Image
+            src={image!}
+            alt={imageAlt || title}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        </div>
+      )}
+
+      {/* Text block */}
+      <div
+        className={[
+          "mx-auto max-w-4xl px-6",
+          hasImage ? "relative -mt-20 md:-mt-28" : "pt-10",
+        ].join(" ")}
+      >
+        <div
+          className={[
+            "rounded-2xl",
+            hasImage
+              ? "bg-white/90 backdrop-blur shadow-lg p-6 md:p-8"
+              : "bg-transparent p-0",
+          ].join(" ")}
+        >
+          <p className="text-sm font-medium text-brand mb-2">{kicker}</p>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
             {title}
           </h1>
-          {byline && (
-            <p className="mt-3 text-sm text-gray-200">{byline}</p>
+
+          {(date || readTime) && (
+            <p className="mt-2 text-sm text-gray-500">
+              {date}
+              {date && readTime ? " • " : ""}
+              {readTime}
+            </p>
           )}
         </div>
       </div>
