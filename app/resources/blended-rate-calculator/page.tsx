@@ -20,6 +20,15 @@ function Field({
   min?: number;
   step?: string;
 }) {
+  // Strip float artifacts (e.g. 6.900000095367432) at the boundary:
+  // state stays numeric, display + parsed input stay clean.
+  const displayValue = Number.isFinite(value)
+    ? parseFloat(value.toPrecision(12))
+    : value;
+  const handleChange = (raw: string) => {
+    const n = Number(raw);
+    onChange(Number.isFinite(n) ? parseFloat(n.toPrecision(12)) : 0);
+  };
   return (
     <label className="block">
       <span className="text-sm font-medium text-slate-800">{label}</span>
@@ -27,10 +36,10 @@ function Field({
         <input
           type="number"
           className="input pr-14"
-          value={value}
+          value={displayValue}
           min={min}
           step={step}
-          onChange={(e) => onChange(Number(e.target.value) || 0)}
+          onChange={(e) => handleChange(e.target.value)}
         />
         <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-500">
           {suffix}
