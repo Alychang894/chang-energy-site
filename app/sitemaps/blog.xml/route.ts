@@ -1,5 +1,5 @@
 // app/sitemaps/blog.xml/route.ts
-const BASE = "https://changenergygroup.com";
+const BASE = "https://www.changenergygroup.com";
 
 function url(loc: string, dateISO: string, changefreq = "monthly", priority = "0.6") {
   return `

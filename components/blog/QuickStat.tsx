@@ -42,7 +42,7 @@ export default function QuickStat({
             <div className="mt-1 text-sm text-gray-500">{sublabel}</div>
           )}
         </div>
-        <div className={`rounded-full bg-orange-50 px-2 py-1 text-xs ${trendColor}`}>
+        <div className={`rounded-full bg-brand-50 px-2 py-1 text-xs ${trendColor}`}>
           {trendIcon}
         </div>
       </div>

@@ -37,7 +37,7 @@ export default function PostPage({ params }: Params) {
 
         <div className="mt-10 border-t pt-6 text-sm text-gray-600">
           Want help applying this to your sites?{" "}
-          <a href="/contact" className="link-brand font-medium">Request a consultation →</a>
+          <a href="/contact" className="link-brand font-medium">Get a free bill review →</a>
         </div>
       </div>
     </main>

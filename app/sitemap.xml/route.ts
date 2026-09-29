@@ -1,5 +1,5 @@
 // app/sitemap.xml/route.ts
-const BASE = "https://changenergygroup.com";
+const BASE = "https://www.changenergygroup.com";
 
 export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

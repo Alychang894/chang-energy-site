@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const siteUrl = "https://changenergygroup.com";
+  const siteUrl = "https://www.changenergygroup.com";
 
   return (
     <main className="px-6 py-12">
@@ -41,7 +41,7 @@ export default function Page() {
 
       <div className="mx-auto max-w-3xl">
         <FadeIn>
-          <span className="inline-flex items-center rounded-full bg-[#F97316]/10 px-2.5 py-1 text-xs font-medium text-[#F97316]">
+          <span className="badge-brand">
             Guide
           </span>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-gray-900">
@@ -87,14 +87,14 @@ export default function Page() {
 
         <FadeIn delay={250}>
           <div className="mt-8 flex items-center gap-3">
-            <Link href="/resources" className="text-[#F97316] font-medium">
+            <Link href="/resources" className="link-brand">
               ← Back to Resources
             </Link>
             <Link
               href="/contact"
-              className="rounded-lg bg-gray-900 px-4 py-2 text-[15px] font-semibold text-white hover:bg-black/90"
+              className="btn btn-primary !px-4 !py-2 !text-[15px]"
             >
-              Request a Consultation
+              Get a Free Bill Review
             </Link>
           </div>
         </FadeIn>

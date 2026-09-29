@@ -15,14 +15,11 @@ export default function Callout({
   buttonHref,
 }: CalloutProps) {
   return (
-    <div className="my-10 rounded-xl border border-orange-200 bg-orange-50 p-6 shadow-sm">
-      {title && <h3 className="text-lg font-semibold text-orange-700 mb-2">{title}</h3>}
-      <p className="text-gray-700 mb-4">{text}</p>
+    <div className="my-10 rounded-xl border border-brand-200 bg-brand-50 p-6 shadow-sm">
+      {title && <h3 className="mb-2 text-lg font-semibold text-brand-800">{title}</h3>}
+      <p className="mb-4 text-slate-700">{text}</p>
       {buttonText && buttonHref && (
-        <a
-          href={buttonHref}
-          className="inline-flex items-center rounded-md bg-orange-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-orange-700"
-        >
+        <a href={buttonHref} className="btn btn-primary !px-4 !py-2 !text-sm">
           {buttonText}
         </a>
       )}

@@ -7,7 +7,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Blog | Chang Energy",
   description:
-    "Short, practical posts for production and facilities leaders: PJM peak demand, procurement strategy, and budget control.",
+    "Short, practical posts for production and facilities leaders: peak demand, procurement strategy, and budget control.",
 };
 
 type Post = {
@@ -37,48 +37,52 @@ const posts: Post[] = [
   },
 ];
 
-export default function BlogIndexPage() {
-  const siteUrl = "https://changenergygroup.com";
+const SITE_URL = "https://www.changenergygroup.com";
 
+export default function BlogIndexPage() {
   return (
-    <main className="px-6 py-12">
+    <main>
       {/* JSON-LD: Blog listing */}
       <Script id="schema-blog-list" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Blog",
           name: "Chang Energy Blog",
-          url: `${siteUrl}/blog`,
+          url: `${SITE_URL}/blog`,
         })}
       </Script>
 
-      <div className="mx-auto max-w-7xl">
-        <FadeIn>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-            Blog
-          </h1>
-          <p className="mt-3 max-w-3xl text-gray-700">
-            Short, operator-first posts on procurement, capacity, and budget control in the PJM region.
-          </p>
-        </FadeIn>
+      {/* Header band */}
+      <section className="band-dark border-b border-white/10">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_260px_at_80%_0px,rgba(249,115,22,0.14),transparent)]"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-16">
+          <FadeIn>
+            <span className="eyebrow">Blog</span>
+            <h1 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+              Energy strategy, in plain English
+            </h1>
+            <p className="mt-4 max-w-3xl text-lg text-slate-300">
+              Short, operator-first posts on procurement, capacity, and budget
+              control — no jargon, no sales pitch.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {posts.map((p) => (
-            <FadeIn key={p.slug}>
+      <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+        <div className="grid gap-6 md:grid-cols-2">
+          {posts.map((p, i) => (
+            <FadeIn key={p.slug} delay={i * 80}>
               <Link
                 href={`/blog/${p.slug}`}
-                className="group block rounded-2xl border bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="card card-hover group block h-full p-6"
               >
                 <div className="flex items-center gap-3">
-                  {p.tag && (
-                    <span className="inline-flex items-center rounded-full bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-700 ring-1 ring-orange-400/20">
-                      {p.tag}
-                    </span>
-                  )}
-                  <time
-                    className="text-xs text-gray-500"
-                    dateTime={p.date}
-                  >
+                  {p.tag && <span className="badge-brand">{p.tag}</span>}
+                  <time className="text-xs text-slate-500" dateTime={p.date}>
                     {new Date(p.date).toLocaleDateString(undefined, {
                       year: "numeric",
                       month: "short",
@@ -86,12 +90,13 @@ export default function BlogIndexPage() {
                     })}
                   </time>
                 </div>
-                <h2 className="mt-2 text-lg font-semibold text-gray-900 group-hover:text-gray-800">
+                <h2 className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
                   {p.title}
                 </h2>
-                <p className="mt-2 text-gray-700">{p.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-orange-700">
-                  Read →
+                <p className="mt-2 text-[15px] text-slate-600">{p.summary}</p>
+                <span className="link-brand mt-4 inline-flex items-center gap-1 text-sm">
+                  Read article
+                  <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
             </FadeIn>

@@ -96,8 +96,8 @@ export default function Page() {
             <Callout
               title="Want to see your potential PLC exposure for next year?"
               text="We’ll analyze your interval data and send a 5-minute breakdown of how much you can avoid with strategic curtailment planning."
-              buttonText="Request a Consultation"
-              buttonHref="/#contact"
+              buttonText="Get a Free Bill Review"
+              buttonHref="/contact"
             />
 
             <p>

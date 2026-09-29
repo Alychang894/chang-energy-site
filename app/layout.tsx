@@ -1,105 +1,50 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Script from "next/script";
 
-export const metadata: Metadata = {
-  title: "Chang Energy | Commercial Energy Optimization in the PJM Region",
-  description:
-    "Chang Energy helps businesses in the PJM region reduce commercial energy costs through smarter procurement, capacity planning, and transparent energy management solutions.",
-  keywords: [
-    // Core commercial + energy keywords
-    "High energy bills",
-    "Commercial energy costs",
-    "Energy management for businesses",
-    "Reducing energy costs",
-    "Commercial electricity savings",
-    "Energy cost reduction solutions",
-    "Energy efficiency for businesses",
-    "Business energy audit",
-    "Commercial energy rates",
-    "Energy billing solutions",
-    "Commercial utility costs",
-    "Energy consumption reduction",
-    "Energy contract optimization",
-    "Energy providers in PJM region",
-    "Energy procurement services",
-    "Energy monitoring systems",
-    "Energy bill auditing",
-    "Commercial energy contract negotiation",
-    "Demand response programs",
-    "Peak demand management",
-    "Energy rate analysis",
-    "Energy saving tips for businesses",
-    "Energy efficiency for warehouses",
-    "Energy savings for data centers",
-    "Energy management for manufacturers",
-    "Factory energy optimization",
-    "Energy solutions for restaurants",
-    "Energy for commercial buildings",
-    "Load forecasting for commercial clients",
-    "Smart meters for businesses",
-    "Commercial energy efficiency programs",
-    "Time-of-use pricing for businesses",
-    "Energy cost solutions for offices",
-    "Energy saving for retail businesses",
-    "Energy procurement services for businesses in PJM",
-    "Commercial energy services in Pennsylvania",
-    "PJM energy market",
-    "PJM electricity rates",
-    "PJM commercial energy solutions",
-    "PJM electricity pricing",
-    "PJM business energy savings",
-    "PJM utility management",
-    "PJM peak demand charges",
-    "PJM energy pricing analysis",
-    "PJM energy efficiency programs",
-    "PJM energy management programs",
-    "Lower your business electricity bill with PJM energy services",
-    "Best ways to lower high electricity rates in PJM for commercial clients",
-    "PJM electricity savings for large businesses",
-    "Cost-effective energy solutions for businesses in the PJM area",
-    "Commercial energy efficiency programs in the PJM region",
-    "How to Lower Your Commercial Energy Bill in the PJM Region",
-    "Understanding PJM Electricity Pricing and How It Impacts Your Business",
-    "Top 5 Ways to Save on Energy Costs for Commercial Clients in PJM",
-    "How PJM’s Peak Demand Charges Affect Your Energy Bills",
-    "The Best Energy Management Solutions for Commercial Clients in the PJM Area",
-    "How to Navigate the PJM Energy Market and Save on Utility Bills",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
-    // Local restaurant & business tie-ins
-    "Bella Roma Pizza",
-    "Three Brothers Grill",
-    "A Taste of Philly",
-    "Valley Pizza",
-    "Newtown Farmers Market",
-    "Amy’s Family Pizzeria",
-    "Newtown Pizza",
-    "Omiza",
-    "Oishi",
-    "Anthony’s Pizza",
-    "Italian Delight",
-    "Eastern Dragon",
-    "Kickin Wings",
-    "Baco Bistro Pizza",
-    "Amore Pizza",
-    "Telford Pizzeria",
-    "Bacco Bistro Pizza",
-    "Frida’s Mexican Grill",
-    "Pumpernicks Deli",
-    "Poco’s Restaurant Bar & Comedy Cabaret",
+const SITE_URL = "https://www.changenergygroup.com";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Chang Energy | Cut Your Business Electricity Costs",
+    template: "%s | Chang Energy",
+  },
+  description:
+    "Chang Energy helps businesses across PA, OH, TX, and New England lower electricity costs with transparent supplier procurement, demand-charge strategy, and line-by-line bill audits.",
+  keywords: [
+    "commercial electricity procurement",
+    "business energy broker",
+    "lower business electricity bill",
+    "commercial energy rates",
+    "energy procurement services",
+    "electricity supplier comparison for business",
+    "demand charge management",
+    "peak load contribution PLC",
+    "utility bill audit commercial",
+    "PJM energy procurement",
+    "ERCOT commercial electricity",
+    "block and index energy pricing",
+    "small business energy costs",
   ],
-  metadataBase: new URL("https://changenergygroup.com"),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: "/favicon.png",
   },
   openGraph: {
-    title:
-      "Chang Energy | Smarter Energy Procurement and Management for Commercial Clients",
+    title: "Chang Energy | Cut Your Business Electricity Costs",
     description:
-      "Reduce energy costs, optimize contracts, and stabilize budgets with Chang Energy’s commercial energy management solutions across the PJM region.",
-    url: "https://changenergygroup.com",
+      "Transparent supplier procurement, demand-charge strategy, and bill audits for businesses across PA, OH, TX, and New England.",
+    url: SITE_URL,
     siteName: "Chang Energy",
     locale: "en_US",
     type: "website",
@@ -114,56 +59,47 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Chang Energy | Commercial Energy Procurement and Cost Optimization",
+    title: "Chang Energy | Cut Your Business Electricity Costs",
     description:
-      "Smarter energy procurement, demand response, and capacity planning for businesses across the PJM region.",
+      "Transparent energy procurement and demand strategy for businesses across PA, OH, TX, and New England.",
     images: ["/favicon.png"],
   },
   alternates: {
-    canonical: "https://changenergygroup.com",
+    canonical: SITE_URL,
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const siteUrl = "https://changenergygroup.com";
-  const logoUrl = `${siteUrl}/favicon.png`; // or switch to /images/logo.png if you prefer
+  const logoUrl = `${SITE_URL}/favicon.png`;
 
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="min-h-dvh bg-white text-gray-900 antialiased">
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+      <body className="min-h-dvh bg-white font-sans text-slate-900 antialiased">
         {/* ===== Global JSON-LD (SEO) ===== */}
         <Script id="schema-organization" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Chang Energy Group",
-            url: siteUrl,
+            url: SITE_URL,
             logo: logoUrl,
             description:
-              "Chang Energy helps commercial and industrial clients in the PJM region lower electricity costs through transparent procurement and strategic energy management.",
-            sameAs: [
-              "https://www.linkedin.com/company/chang-energy-group/",
-              "https://twitter.com/changenergy",
-            ],
+              "Chang Energy helps businesses lower electricity costs through transparent supplier procurement, demand-charge strategy, and bill audits.",
             contactPoint: {
               "@type": "ContactPoint",
               telephone: "+1-267-340-8300",
+              email: "support@changenergygroup.com",
               contactType: "Customer Service",
               areaServed: "US",
               availableLanguage: "English",
             },
             areaServed: [
-              "PJM Interconnection Region",
-              "United States",
               "Pennsylvania",
-              "New Jersey",
-              "Maryland",
-              "Delaware",
-              "Virginia",
               "Ohio",
-              "Illinois",
-              "Indiana",
+              "Texas",
+              "New England",
+              "PJM Interconnection Region",
+              "ERCOT",
             ],
           })}
         </Script>
@@ -173,12 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "Chang Energy",
-            url: siteUrl,
-            potentialAction: {
-              "@type": "SearchAction",
-              target: `${siteUrl}/search?q={search_term_string}`,
-              "query-input": "required name=search_term_string",
-            },
+            url: SITE_URL,
           })}
         </Script>
         {/* ===== End Global JSON-LD ===== */}
@@ -190,6 +121,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="content" className="relative">
           {children}
         </main>
+
+        {/* Site footer */}
+        <Footer />
       </body>
     </html>
   );

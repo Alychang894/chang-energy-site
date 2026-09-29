@@ -54,11 +54,8 @@ export default function Header() {
               );
             })}
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-lg bg-gray-900 px-4 py-2 text-[15px] font-semibold text-white shadow-sm hover:bg-black/90"
-            >
-              Request a Consultation
+            <Link href="/contact" className="btn btn-primary !px-5 !py-2.5">
+              Get a Free Bill Review
             </Link>
           </nav>
 
@@ -104,9 +101,9 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center rounded-lg bg-gray-900 px-4 py-2 text-[15px] font-semibold text-white hover:bg-black/90"
+                className="btn btn-primary mt-2 w-full"
               >
-                Request a Consultation
+                Get a Free Bill Review
               </Link>
             </div>
           </div>

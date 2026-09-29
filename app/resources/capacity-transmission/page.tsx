@@ -42,7 +42,7 @@ export default function CapacityTransmissionPage() {
                 Download PDF
               </a>
               <a href="/contact" className="btn btn-outline">
-                Request a Consultation
+                Get a Free Bill Review
               </a>
             </div>
           </div>

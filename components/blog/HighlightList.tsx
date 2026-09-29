@@ -18,8 +18,8 @@ export default function HighlightList({
       <ul className={`space-y-${dense ? "2" : "3"}`}>
         {items.map((item, i) => (
           <li key={i} className="flex items-start gap-3">
-            <span className="mt-1 inline-flex h-2.5 w-2.5 flex-none rounded-full bg-orange-500 shadow-[0_0_0_3px_rgba(253,186,116,.35)]" />
-            <div className="text-gray-800">{item}</div>
+            <span className="mt-1 inline-flex h-2.5 w-2.5 flex-none rounded-full bg-brand-500 shadow-[0_0_0_3px_rgba(253,186,116,.35)]" />
+            <div className="text-slate-800">{item}</div>
           </li>
         ))}
       </ul>

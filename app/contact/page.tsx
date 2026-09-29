@@ -26,93 +26,165 @@ export default function ContactPage() {
     }
   }
 
+  const nextSteps = [
+    { t: "We audit your bill", d: "Line-by-line review for errors, bad tariffs, and demand-charge waste — usually within 1 business day." },
+    { t: "We shop suppliers", d: "Your usage goes out for competitive bids. You see every option with transparent markups." },
+    { t: "You approve, we switch", d: "Pick the rate that fits. We handle the paperwork; your utility keeps delivering, uninterrupted." },
+  ];
+
   return (
     <main className="min-h-screen bg-white">
-      <section className="mx-auto max-w-3xl px-6 pt-16 pb-8">
-        <h1 className="text-4xl font-bold tracking-tight">Request a Meeting</h1>
-        <p className="mt-4 text-gray-700">
-          Share a recent utility bill (PDF or image) and a few details. We’ll run a quick audit,
-          estimate potential savings, and follow up with next steps.
-        </p>
+      {/* Header band */}
+      <section className="band-dark border-b border-white/10">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_260px_at_20%_0px,rgba(249,115,22,0.14),transparent)]"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-16">
+          <span className="eyebrow">Free bill review</span>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+            Get your free bill review
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-slate-300">
+            Share a recent electricity bill and a few details. We&apos;ll audit
+            it, shop competitive supplier rates, and follow up with a clear
+            savings picture — no obligation.
+          </p>
+        </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 pb-16">
-        <form onSubmit={onSubmit} className="rounded-2xl border p-6 space-y-6">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium">First name</label>
-              <input name="firstName" required className="mt-1 input" placeholder="First Name" />
+      <section className="bg-white py-12 md:py-16">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1fr_360px]">
+          {/* Form — logic and field names untouched */}
+          <form onSubmit={onSubmit} className="card space-y-6 p-6 shadow-lift md:p-8">
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <label className="block text-sm font-medium text-slate-800">First name</label>
+                <input name="firstName" required className="input" placeholder="First Name" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-800">Last name</label>
+                <input name="lastName" required className="input" placeholder="Last Name" />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium">Last name</label>
-              <input name="lastName" required className="mt-1 input" placeholder="Last Name" />
-            </div>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium">Company</label>
-              <input name="company" required className="mt-1 input" placeholder="Business Name" />
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <label className="block text-sm font-medium text-slate-800">Company</label>
+                <input name="company" required className="input" placeholder="Business Name" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-800">Role / Title</label>
+                <input name="title" className="input" placeholder="Title" />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium">Role / Title</label>
-              <input name="title" className="mt-1 input" placeholder="Title" />
-            </div>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium">Work email</label>
-              <input name="email" type="email" required className="mt-1 input" placeholder="you@company.com" />
+            <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <label className="block text-sm font-medium text-slate-800">Work email</label>
+                <input name="email" type="email" required className="input" placeholder="you@company.com" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-800">Phone</label>
+                <input name="phone" className="input" placeholder="(555) 555-5555" />
+              </div>
             </div>
+
             <div>
-              <label className="block text-sm font-medium">Phone</label>
-              <input name="phone" className="mt-1 input" placeholder="(555) 555-5555" />
+              <label className="block text-sm font-medium text-slate-800">Message (optional)</label>
+              <textarea name="message" rows={4} className="textarea" placeholder="Sites, goals, timing…"></textarea>
             </div>
-          </div>
 
-          <div>
-            <label className="block text-sm font-medium">Message (optional)</label>
-            <textarea name="message" rows={4} className="mt-1 textarea" placeholder="Sites, goals, timing…"></textarea>
-          </div>
+            <div className="rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-5">
+              <label className="block text-sm font-semibold text-slate-800">
+                Upload a recent utility bill
+              </label>
+              <input
+                name="bill"
+                type="file"
+                accept=".pdf,.jpg,.jpeg,.png,.webp"
+                className="input mt-2 w-full file:mr-4 file:rounded-lg file:border-0 file:bg-slate-950 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-slate-800"
+              />
+              <p className="mt-2 text-xs text-slate-500">
+                PDF, JPG, or PNG. Up to ~10MB. You can also share more later.
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                Prefer to talk it through?{" "}
+                <a href="tel:+12673408300" className="font-semibold text-brand-600 hover:text-brand-700">
+                  Call +1-267-340-8300
+                </a>
+              </p>
+            </div>
 
-          <div>
-            <label className="block text-sm font-medium">Upload a recent utility bill</label>
-            <input
-              name="bill"
-              type="file"
-              accept=".pdf,.jpg,.jpeg,.png,.webp"
-              className="mt-1 file:mr-4 file:btn file:btn-outline input w-full"
-            />
-            <p className="mt-2 text-xs text-gray-500">
-              PDF, JPG, or PNG. Up to ~10MB. You can also share multiple later.
-            </p>
-            <p className="mt-2 text-sm text-gray-600">
-              Prefer to talk it through?{" "}
-              <a href="tel:+12673408300" className="font-semibold text-brand-600 hover:text-brand-700">
-                Call +1-267-340-8300
+            {status === "error" && (
+              <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                {error || "There was an issue. Please try again."}
+              </div>
+            )}
+            {status === "success" && (
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800">
+                Thanks — we&apos;ve received your info. A consultant will reach out shortly.
+              </div>
+            )}
+
+            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+              <button disabled={status === "submitting"} className="btn btn-primary btn-lg">
+                {status === "submitting" ? "Submitting…" : "Send My Bill for Review"}
+              </button>
+              <a href="/resources" className="btn btn-outline">
+                View Guides
               </a>
+            </div>
+            <p className="text-xs text-slate-500">
+              Your bill is used only for the review. We never share your information.
             </p>
-          </div>
+          </form>
 
-          {status === "error" && (
-            <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-              {error || "There was an issue. Please try again."}
+          {/* Side panel */}
+          <aside className="space-y-6">
+            <div className="card p-6">
+              <h2 className="text-lg font-semibold text-slate-900">What happens next</h2>
+              <ol className="mt-4 space-y-4">
+                {nextSteps.map((s, i) => (
+                  <li key={s.t} className="flex gap-3">
+                    <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <p className="font-semibold text-slate-900">{s.t}</p>
+                      <p className="mt-0.5 text-sm text-slate-600">{s.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
-          )}
-          {status === "success" && (
-            <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800">
-              Thanks — we’ve received your info. A consultant will reach out shortly.
-            </div>
-          )}
 
-          <div className="flex items-center gap-3">
-            <button disabled={status === "submitting"} className="btn btn-primary">
-              {status === "submitting" ? "Submitting…" : "Send & Upload"}
-            </button>
-            <a href="/resources" className="btn btn-outline">View Guides</a>
-          </div>
-        </form>
+            <div className="band-dark rounded-2xl p-6">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(300px_160px_at_50%_0px,rgba(249,115,22,0.2),transparent)]"
+              />
+              <div className="relative">
+                <h2 className="text-lg font-semibold text-white">Prefer to talk?</h2>
+                <p className="mt-1 text-sm text-slate-300">
+                  A real person picks up — Mon–Fri, 9am–5pm ET.
+                </p>
+                <a
+                  href="tel:+12673408300"
+                  className="btn btn-primary mt-4 w-full"
+                >
+                  Call +1-267-340-8300
+                </a>
+                <a
+                  href="mailto:support@changenergygroup.com"
+                  className="link-brand mt-3 block text-center text-sm !text-brand-300 hover:!text-brand-200"
+                >
+                  support@changenergygroup.com
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
       </section>
     </main>
   );

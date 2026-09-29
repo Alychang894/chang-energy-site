@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const siteUrl = "https://changenergygroup.com";
+  const siteUrl = "https://www.changenergygroup.com";
   const title =
     "How to Lower Commercial Energy Bills (Without Going 100% Fixed)";
 
@@ -71,8 +71,7 @@ export default function Page() {
           </p>
 
           <blockquote>
-            “Fixed rates buy comfort, not necessarily value,” says Ben Chang, founder of Chang Energy Group. 
-            “The key is knowing how much of that comfort you actually need.”
+            “Fixed rates buy comfort, not necessarily value. The key is knowing how much of that comfort you actually need.”
           </blockquote>
 
           <h2>2) Enter Block + Index: Smarter Risk, Real Savings</h2>
@@ -156,19 +155,23 @@ export default function Page() {
           </p>
 
           <blockquote>
-            “The market rewards patience, not panic. Procurement isn’t timing the market — it’s reading it,” says Chang.
+            “The market rewards patience, not panic. Procurement isn’t timing the market — it’s reading it.”
           </blockquote>
 
-          <h2>6) Real-World Example: The Multi-Site Retailer</h2>
+          <h2>6) How the Math Works: An Illustration</h2>
           <p>
-            A Pennsylvania-based grocery chain was paying a fully fixed 10.2¢ per kWh across 12 locations. After a load audit, we discovered 
-            their baseload represented 75% of their usage — ideal for a block and index structure. By fixing that portion and floating the rest, 
-            their all-in blended cost averaged 8.7¢ over the next contract term, saving more than $120,000 annually.
+            Consider a hypothetical multi-site business where a load audit shows
+            baseload represents about 75% of usage. Fixing that block portion
+            and floating the remainder on an index can produce a lower blended
+            all-in cost than a single fully fixed rate — because the fixed
+            portion avoids paying the retail risk premium on every kWh.
           </p>
 
           <p>
-            Just as importantly, the CFO gained visibility into which cost components were controllable vs. market-driven — turning what used to be 
-            an unpredictable expense into a measurable performance metric.
+            The exact savings depend on market timing, load shape, and supplier
+            markups, which is why the analysis starts with your interval data,
+            not a rule of thumb. The structure decision matters more than the
+            headline rate.
           </p>
 
           <h2>7) The Strategic Payoff: Control Without Overpaying</h2>
@@ -190,14 +193,14 @@ export default function Page() {
         </div>
 
         <div className="mt-8 flex items-center gap-3">
-          <Link href="/blog" className="text-[#F97316] font-medium">
+          <Link href="/blog" className="link-brand">
             ← Back to Blog
           </Link>
           <Link
             href="/contact"
-            className="rounded-lg bg-gray-900 px-4 py-2 text-[15px] font-semibold text-white hover:bg-black/90"
+            className="btn btn-primary !px-4 !py-2 !text-[15px]"
           >
-            Request a Consultation
+            Get a Free Bill Review
           </Link>
         </div>
       </article>
