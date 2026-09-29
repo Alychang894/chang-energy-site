@@ -75,7 +75,7 @@ const ANNOTATIONS = [
   {
     year: 2022,
     series: 0,
-    dx: 30,
+    dx: -14,
     dy: -58,
     title: "2022: Russia invades Ukraine",
     text: "Global gas prices surge — PA rates jumped 20% in one year",
