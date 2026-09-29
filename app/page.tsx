@@ -6,10 +6,10 @@ import Link from "next/link";
 
 function TrustBar() {
   const items = [
-    { t: "Transparent markups", d: "See exactly what suppliers charge." },
-    { t: "Same utility delivers", d: "Only the supplier changes — no interruption." },
-    { t: "Free bill review", d: "No obligation, no pushy sales calls." },
-    { t: "Built for operators", d: "Plans fit your shifts, seasons, and sites." },
+    { t: "No hidden markups", d: "You'll see exactly what the supplier charges." },
+    { t: "Same utility, same wires", d: "Nothing changes except the rate you pay." },
+    { t: "Free bill review", d: "No obligation — and no pushy sales calls, ever." },
+    { t: "One person who knows you", d: "A real point of contact, not a call center." },
   ];
   return (
     <section className="border-b border-slate-200 bg-white">
@@ -43,12 +43,12 @@ const steps = [
   {
     n: "2",
     title: "We shop & audit",
-    body: "We run your usage against competitive supplier bids and audit every line of the bill for errors, bad tariffs, and inflated demand charges.",
+    body: "We shop your usage against competitive supplier bids and go through your bill line by line — catching errors, wrong tariffs, and inflated demand charges.",
   },
   {
     n: "3",
     title: "You approve the rate",
-    body: "You see side-by-side options with full transparency. Pick the winner — we handle the switch paperwork. Your utility keeps delivering, uninterrupted.",
+    body: "You get simple side-by-side options with everything spelled out. Pick the one you like — we handle the switch paperwork, and your utility keeps delivering without missing a beat.",
   },
 ];
 
@@ -59,7 +59,7 @@ function HowItWorks() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <span className="eyebrow justify-center">How it works</span>
-            <h2 className="h2 mt-4">From bill to better rate in three steps</h2>
+            <h2 className="h2 mt-4">From your bill to a better rate in three steps</h2>
             <p className="p mx-auto mt-4 max-w-2xl text-lg">
               No cold calls, no 40-page contracts to decode. Just a clear look
               at what you&apos;re paying and what you could be paying.
@@ -99,12 +99,12 @@ function HowItWorks() {
 }
 
 const industries = [
-  { name: "Restaurants & Chains", d: "High-usage kitchens with thin margins." },
-  { name: "Manufacturing", d: "Rates tied to shifts and throughput." },
-  { name: "Cold Storage", d: "24/7 refrigeration, managed demand.", href: "/industries/cold-storage" },
-  { name: "Healthcare", d: "Reliability first, costs controlled." },
-  { name: "Offices & Retail", d: "Multi-site consistency and reporting." },
-  { name: "Laundromats & Auto Shops", d: "Small businesses hit hardest by spikes." },
+  { name: "Restaurants & Chains", d: "Kitchens running full tilt on thin margins." },
+  { name: "Laundromats & Auto Shops", d: "The little guys hit hardest when rates spike." },
+  { name: "Offices & Retail", d: "One clean picture across every location." },
+  { name: "Manufacturing", d: "Power costs that move with your shifts." },
+  { name: "Cold Storage", d: "Round-the-clock cooling without the scary bills.", href: "/industries/cold-storage" },
+  { name: "Healthcare", d: "Reliable power with costs under control." },
 ];
 
 function IndustriesStrip() {
@@ -114,7 +114,7 @@ function IndustriesStrip() {
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <FadeIn>
             <span className="eyebrow">Industries</span>
-            <h2 className="h2 mt-4 max-w-xl">Built for businesses that can&apos;t afford energy surprises</h2>
+            <h2 className="h2 mt-4 max-w-xl">Built for businesses that feel every penny of their electric bill</h2>
           </FadeIn>
           <FadeIn delay={100}>
             <Link href="/industries" className="btn btn-outline">
@@ -152,11 +152,11 @@ function IndustriesStrip() {
 const faqs = [
   {
     q: "Will my power be interrupted if I switch suppliers?",
-    a: "No. Your local utility still delivers the electricity over the same wires and handles outages. Only the company supplying the energy — and the rate you pay — changes.",
+    a: "Nope — not for a second. Your local utility still delivers electricity over the same wires and handles any outages. The only thing that changes is the company supplying the energy, and the rate you pay for it.",
   },
   {
     q: "What do you need from me to get started?",
-    a: "Just a recent electricity bill. It shows your usage pattern, current rate, and demand charges — everything we need to shop competitive bids and audit for errors.",
+    a: "Just one thing: a recent electricity bill. That's it — it shows your usage, your current rate, and any demand charges, which is everything we need to shop better bids and check for errors.",
   },
   {
     q: "I'm already under contract. Can you still help?",
@@ -164,7 +164,7 @@ const faqs = [
   },
   {
     q: "Which areas do you serve?",
-    a: "We serve businesses across Pennsylvania, Ohio, Texas, and New England — covering both deregulated markets like PJM and ERCOT.",
+    a: "We're set up across Pennsylvania, Ohio, Texas, and New England — including the big deregulated markets (PJM and ERCOT). If your business is in one of those states, we can almost certainly help.",
   },
   {
     q: "What does the bill review cost?",
@@ -179,7 +179,7 @@ function Faq() {
         <div className="text-center">
           <FadeIn>
             <span className="eyebrow justify-center">FAQ</span>
-            <h2 className="h2 mt-4">Questions business owners ask us</h2>
+            <h2 className="h2 mt-4">Questions we hear all the time</h2>
           </FadeIn>
         </div>
         <div className="mt-10 space-y-4">
@@ -214,11 +214,12 @@ function FinalCta() {
       <div className="relative mx-auto max-w-4xl px-6 py-20 text-center md:py-24">
         <FadeIn>
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
-            Stop overpaying for electricity.
+            Let&apos;s take a look at your bill.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-            Upload a bill today — by this time next week you could be looking
-            at a rate that actually makes sense for your business.
+            Snap a photo of your latest electric bill and send it our way. A
+            real person will dig in and show you what&apos;s possible — usually
+            within a few days.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/contact" className="btn btn-primary btn-lg">
@@ -241,9 +242,9 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        eyebrow="Commercial energy procurement"
+        eyebrow="Your business energy partner"
         title="Your electricity bill is negotiable."
-        subtitle="Chang Energy helps businesses across PA, OH, TX, and New England cut electricity costs — competitive supplier pricing, demand-charge strategy, and line-by-line bill audits. Upload your utility bill and start your free review today."
+        subtitle="Your electric bill shouldn't be a mystery — or a budget-killer. Upload a recent bill and a real person will shop better supplier rates for you, check every line for errors, and show you where your money is actually going. Free review, zero obligation. We help everyone from corner restaurants to multi-site operations across PA, OH, TX, and New England."
         imageUrl="/images/hero-power.jpg"
         ctas={[
           { label: "Get My Free Bill Review", href: "/contact", variant: "primary" },
