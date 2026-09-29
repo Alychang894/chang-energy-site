@@ -245,7 +245,7 @@ export default function HomePage() {
         eyebrow="Your business energy partner"
         title="Your electricity bill is negotiable."
         subtitle="Your electric bill shouldn't be a mystery — or a budget-killer. Upload a recent bill and a real person will shop better supplier rates for you, check every line for errors, and show you where your money is actually going. Free review, zero obligation. We help everyone from corner restaurants to multi-site operations across PA, OH, TX, and New England."
-        imageUrl="/images/hero-power.jpg"
+        imageUrl="/images/hero-storefront.jpg"
         ctas={[
           { label: "Get My Free Bill Review", href: "/contact", variant: "primary" },
           { label: "Email Us", href: "mailto:ben@changenergygroup.com", variant: "outline" },
