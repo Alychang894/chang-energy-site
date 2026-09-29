@@ -55,30 +55,45 @@ function pathFor(s: Series) {
   return s.values.map((v, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
 }
 
-const ANNOTATIONS = [
+type Ann = {
+  year: number;
+  series: number;
+  tx: number;
+  ty: number;
+  anchor: "start" | "end";
+  title: string;
+  text: string;
+};
+
+// Label positions are hand-placed in empty chart regions so long
+// callouts never clip at the card edges.
+const ANNOTATIONS: Ann[] = [
   {
     year: 2014,
     series: 0,
-    dx: -10,
-    dy: -46,
+    tx: 66,
+    ty: 88,
+    anchor: "start",
     title: "2014 polar vortex",
     text: "Gas spikes hit the Midwest & Northeast",
   },
   {
     year: 2021,
     series: 2,
-    dx: 26,
-    dy: 52,
+    tx: 620,
+    ty: 349,
+    anchor: "start",
     title: "Feb 2021: Winter Storm Uri",
-    text: "Texas grid crisis — TX rates jumped 15% that year",
+    text: "Texas grid crisis — TX rates +15% that year",
   },
   {
     year: 2022,
     series: 0,
-    dx: -14,
-    dy: -58,
+    tx: 470,
+    ty: 88,
+    anchor: "start",
     title: "2022: Russia invades Ukraine",
-    text: "Global gas prices surge — PA rates jumped 20% in one year",
+    text: "Global gas surge — PA rates jumped 20% in one year",
   },
 ];
 
@@ -133,17 +148,15 @@ function RateChart() {
           const i = YEARS.indexOf(a.year);
           const px = x(i);
           const py = y(s.values[i]);
-          const tx = px + a.dx;
-          const ty = py + a.dy;
-          const anchor = a.dx >= 0 ? "start" : "end";
+          const lx = a.tx + (a.anchor === "start" ? 6 : -6);
           return (
             <g key={k}>
               <circle cx={px} cy={py} r="6" fill="#fff" stroke={s.color} strokeWidth="2.5" />
-              <line x1={px} y1={py} x2={tx} y2={ty + (a.dy > 0 ? -8 : 14)} stroke="#94A3B8" strokeWidth="1.2" strokeDasharray="3 3" />
-              <text x={tx} y={ty} textAnchor={anchor} fontSize="13" fontWeight="700" fill="#0F2740">
+              <line x1={px} y1={py} x2={lx} y2={a.ty + 18} stroke="#94A3B8" strokeWidth="1.2" strokeDasharray="3 3" />
+              <text x={a.tx} y={a.ty} textAnchor={a.anchor} fontSize="13" fontWeight="700" fill="#0F2740">
                 {a.title}
               </text>
-              <text x={tx} y={ty + 17} textAnchor={anchor} fontSize="12" fill="#64748B">
+              <text x={a.tx} y={a.ty + 17} textAnchor={a.anchor} fontSize="12" fill="#64748B">
                 {a.text}
               </text>
             </g>
