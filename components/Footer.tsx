@@ -112,11 +112,21 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="mailto:ben@changenergygroup.com"
+                  className="font-semibold text-white transition-colors hover:text-brand-300"
+                >
+                  ben@changenergygroup.com
+                </a>
+                <p className="mt-0.5 text-slate-500">Primary contact</p>
+              </li>
+              <li>
+                <a
                   href="mailto:support@changenergygroup.com"
                   className="text-slate-300 transition-colors hover:text-white"
                 >
                   support@changenergygroup.com
                 </a>
+                <p className="mt-0.5 text-slate-500">Support</p>
               </li>
               <li>
                 <Link href="/contact" className="btn btn-primary !px-5 !py-2.5 !text-sm">

@@ -179,8 +179,8 @@ export default function ColdStoragePage() {
               <Link href="/contact" className="btn btn-primary btn-lg">
                 Get My Free Bill Review
               </Link>
-              <a href="tel:+12673408300" className="btn btn-lg btn-outline-light">
-                Call +1-267-340-8300
+              <a href="mailto:ben@changenergygroup.com" className="btn btn-lg btn-outline-light">
+                Email Us
               </a>
             </div>
           </FadeIn>

@@ -46,9 +46,9 @@ export default function ContactPage() {
             Get your free bill review
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-slate-300">
-            Share a recent electricity bill and a few details. We&apos;ll audit
-            it, shop competitive supplier rates, and follow up with a clear
-            savings picture — no obligation.
+            Upload your utility bill and a few details — it takes about a
+            minute. We&apos;ll audit it line by line, shop competitive supplier
+            rates, and follow up with a clear savings picture — no obligation.
           </p>
         </div>
       </section>
@@ -109,9 +109,9 @@ export default function ContactPage() {
                 PDF, JPG, or PNG. Up to ~10MB. You can also share more later.
               </p>
               <p className="mt-2 text-sm text-slate-600">
-                Prefer to talk it through?{" "}
-                <a href="tel:+12673408300" className="font-semibold text-brand-600 hover:text-brand-700">
-                  Call +1-267-340-8300
+                Questions first?{" "}
+                <a href="mailto:ben@changenergygroup.com" className="font-semibold text-brand-600 hover:text-brand-700">
+                  ben@changenergygroup.com
                 </a>
               </p>
             </div>
@@ -165,15 +165,15 @@ export default function ContactPage() {
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(300px_160px_at_50%_0px,rgba(249,115,22,0.2),transparent)]"
               />
               <div className="relative">
-                <h2 className="text-lg font-semibold text-white">Prefer to talk?</h2>
+                <h2 className="text-lg font-semibold text-white">Prefer email?</h2>
                 <p className="mt-1 text-sm text-slate-300">
-                  A real person picks up — Mon–Fri, 9am–5pm ET.
+                  Send your bill straight to our inbox — a real person reviews every one.
                 </p>
                 <a
-                  href="tel:+12673408300"
+                  href="mailto:ben@changenergygroup.com"
                   className="btn btn-primary mt-4 w-full"
                 >
-                  Call +1-267-340-8300
+                  ben@changenergygroup.com
                 </a>
                 <a
                   href="mailto:support@changenergygroup.com"

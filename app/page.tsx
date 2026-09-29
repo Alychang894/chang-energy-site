@@ -4,9 +4,6 @@ import Offering from "../components/Offering";
 import FadeIn from "../components/FadeIn";
 import Link from "next/link";
 
-const PHONE_HREF = "tel:+12673408300";
-const PHONE_LABEL = "+1-267-340-8300";
-
 function TrustBar() {
   const items = [
     { t: "Transparent markups", d: "See exactly what suppliers charge." },
@@ -41,7 +38,7 @@ const steps = [
   {
     n: "1",
     title: "Upload your bill",
-    body: "Send a recent electricity bill through our secure form. It takes about a minute — that's all we need to start.",
+    body: "Snap a photo or attach a PDF of a recent electricity bill through our secure form. It takes about a minute — and your free review starts the moment it lands.",
   },
   {
     n: "2",
@@ -89,11 +86,11 @@ function HowItWorks() {
 
         <FadeIn delay={200}>
           <p className="mt-8 text-center text-[15px] text-slate-600">
-            Prefer to talk it through first?{" "}
-            <a href={PHONE_HREF} className="link-brand font-semibold">
-              Call {PHONE_LABEL}
+            Prefer email?{" "}
+            <a href="mailto:ben@changenergygroup.com" className="link-brand font-semibold">
+              ben@changenergygroup.com
             </a>{" "}
-            — a real person picks up.
+            — a real person reviews every bill.
           </p>
         </FadeIn>
       </div>
@@ -227,12 +224,12 @@ function FinalCta() {
             <Link href="/contact" className="btn btn-primary btn-lg">
               Get My Free Bill Review
             </Link>
-            <a href={PHONE_HREF} className="btn btn-lg btn-outline-light">
-              Call {PHONE_LABEL}
+            <a href="mailto:ben@changenergygroup.com" className="btn btn-lg btn-outline-light">
+              Email Us Instead
             </a>
           </div>
           <p className="mt-6 text-sm text-slate-400">
-            Free review · No obligation · Real humans, Mon–Fri 9am–5pm ET
+            Free review · No obligation · Every bill reviewed by a real human
           </p>
         </FadeIn>
       </div>
@@ -246,11 +243,11 @@ export default function HomePage() {
       <Hero
         eyebrow="Commercial energy procurement"
         title="Your electricity bill is negotiable."
-        subtitle="Chang Energy helps businesses across PA, OH, TX, and New England cut electricity costs — competitive supplier pricing, demand-charge strategy, and line-by-line bill audits. Start with a free bill review."
+        subtitle="Chang Energy helps businesses across PA, OH, TX, and New England cut electricity costs — competitive supplier pricing, demand-charge strategy, and line-by-line bill audits. Upload your utility bill and start your free review today."
         imageUrl="/images/hero-power.jpg"
         ctas={[
           { label: "Get My Free Bill Review", href: "/contact", variant: "primary" },
-          { label: `Call ${PHONE_LABEL}`, href: PHONE_HREF, variant: "outline" },
+          { label: "Email Us", href: "mailto:ben@changenergygroup.com", variant: "outline" },
         ]}
       />
       <TrustBar />

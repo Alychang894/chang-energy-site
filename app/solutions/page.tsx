@@ -177,8 +177,8 @@ export default function SolutionsPage() {
                   <Link href="/contact" className="btn btn-primary">
                     Get My Free Bill Review
                   </Link>
-                  <a href="tel:+12673408300" className="btn btn-outline-light">
-                    Call +1-267-340-8300
+                  <a href="mailto:ben@changenergygroup.com" className="btn btn-outline-light">
+                    Email Us
                   </a>
                 </div>
               </div>

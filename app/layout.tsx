@@ -87,7 +87,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "Chang Energy helps businesses lower electricity costs through transparent supplier procurement, demand-charge strategy, and bill audits.",
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+1-267-340-8300",
               email: "support@changenergygroup.com",
               contactType: "Customer Service",
               areaServed: "US",
