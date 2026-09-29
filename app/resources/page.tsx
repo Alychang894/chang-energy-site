@@ -12,6 +12,16 @@ export const metadata: Metadata = {
 
 const SITE_URL = "https://www.changenergygroup.com";
 
+const tools = [
+  {
+    kind: "Calculator",
+    title: "Blended Rate Calculator",
+    blurb:
+      "Plug in your usage and rate components to see your true all-in cost per kWh — the number suppliers hope you never calculate.",
+    href: "/resources/blended-rate-calculator",
+  },
+];
+
 const resources = [
   {
     kind: "Guide",
@@ -45,6 +55,14 @@ export default function ResourcesPage() {
           "@context": "https://schema.org",
           "@type": "ItemList",
           itemListElement: [
+            {
+              "@type": "WebApplication",
+              name: "Blended Rate Calculator",
+              url: `${SITE_URL}/resources/blended-rate-calculator`,
+              about:
+                "Calculate your true all-in electricity cost per kWh from usage and rate components.",
+              applicationCategory: "UtilitiesApplication",
+            },
             {
               "@type": "TechArticle",
               headline: "Capacity & Transmission Playbook",
@@ -106,7 +124,47 @@ export default function ResourcesPage() {
 
       <section className="bg-white py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 md:grid-cols-2">
+          <FadeIn>
+            <h2 className="text-xl font-bold tracking-tight text-slate-900">
+              Interactive tools
+            </h2>
+            <p className="mt-1 text-[15px] text-slate-600">
+              Run the numbers yourself — right in your browser.
+            </p>
+          </FadeIn>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {tools.map((r, i) => (
+              <FadeIn key={r.title} delay={i * 80}>
+                <a
+                  href={r.href}
+                  className="card card-hover group relative block h-full p-6"
+                >
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-700 via-brand-500 to-brand-700" />
+                  <span className="badge-brand">{r.kind}</span>
+                  <h2 className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
+                    {r.title}
+                  </h2>
+                  <p className="mt-2 text-[15px] text-slate-600">{r.blurb}</p>
+                  <span className="link-brand mt-4 inline-flex items-center gap-1 text-[15px]">
+                    Open
+                    <svg viewBox="0 0 20 20" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+                      <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" />
+                    </svg>
+                  </span>
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn>
+            <h2 className="mt-14 text-xl font-bold tracking-tight text-slate-900">
+              Guides & templates
+            </h2>
+            <p className="mt-1 text-[15px] text-slate-600">
+              Plain-language playbooks you can put to work immediately.
+            </p>
+          </FadeIn>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
             {resources.map((r, i) => (
               <FadeIn key={r.title} delay={i * 80}>
                 <a
