@@ -87,6 +87,12 @@ export default function ContactPage() {
             <p className="mt-2 text-xs text-gray-500">
               PDF, JPG, or PNG. Up to ~10MB. You can also share multiple later.
             </p>
+            <p className="mt-2 text-sm text-gray-600">
+              Prefer to talk it through?{" "}
+              <a href="tel:+12673408300" className="font-semibold text-brand-600 hover:text-brand-700">
+                Call +1-267-340-8300
+              </a>
+            </p>
           </div>
 
           {status === "error" && (
