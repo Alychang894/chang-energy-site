@@ -25,6 +25,13 @@ const tools = [
 const resources = [
   {
     kind: "Guide",
+    title: "Why Lock In Your Electricity Rate",
+    blurb:
+      "How commercial rates work, what they actually did from 2013–2024, and why smart businesses pick one solid rate.",
+    href: "/why-chang-energy",
+  },
+  {
+    kind: "Guide",
     title: "Capacity & Transmission Playbook",
     blurb:
       "Cut demand charges with practical PLC/NSPL tactics that won't disrupt operations. Alerts, curtailment windows, year-over-year tracking.",
