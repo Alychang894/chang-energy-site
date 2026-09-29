@@ -1,5 +1,5 @@
 // components/Footer.tsx
-import Image from "next/image";
+import Logo from "./Logo";
 import Link from "next/link";
 
 const solutionLinks = [
@@ -34,16 +34,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/images/logo.png"
-                alt="Chang Energy logo"
-                width={36}
-                height={36}
-                className="h-9 w-9"
-              />
-              <span className="text-lg font-semibold tracking-tight text-white">
-                Chang Energy
-              </span>
+              <Logo variant="light" className="h-9 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
               Transparent energy procurement and demand strategy for businesses

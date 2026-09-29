@@ -1,7 +1,7 @@
 // components/Header.tsx
 "use client";
 
-import Image from "next/image";
+import Logo from "./Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -23,17 +23,7 @@ export default function Header() {
         <div className="flex h-[64px] items-center justify-between md:h-[72px]">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/images/logo.png"               // <-- correct public path
-              alt="Chang Energy logo"
-              width={36}
-              height={36}
-              priority
-              className="h-9 w-9"
-            />
-            <span className="text-lg font-semibold tracking-tight">
-              Chang Energy
-            </span>
+            <Logo className="h-9 w-auto" />
           </Link>
 
           {/* Desktop nav */}
