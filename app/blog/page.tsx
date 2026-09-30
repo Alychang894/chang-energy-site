@@ -20,6 +20,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "winter-energy-checklist",
+    title: "5 Energy Moves to Make Before Winter",
+    date: "2026-09-30",
+    summary:
+      "Winter is when electric bills surprise small businesses. Five practical moves — contract check, rate review, and more — to make before the cold hits.",
+    tag: "Seasonal",
+  },
+  {
     slug: "pjm-peak-demand-charges",
     title: "PJM Peak Demand Charges: 3 Moves to Cut PLC Without Disrupting Ops",
     date: "2025-10-15",
