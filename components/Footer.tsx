@@ -43,7 +43,13 @@ export default function Footer() {
             <p className="mt-4 text-sm text-slate-400">
               Serving businesses across{" "}
               <span className="font-medium text-slate-200">
-                PA · OH · TX · New England
+                <Link href="/locations/pennsylvania" className="transition-colors hover:text-white">PA</Link>
+                {" · "}
+                <Link href="/locations/ohio" className="transition-colors hover:text-white">OH</Link>
+                {" · "}
+                <Link href="/locations/texas" className="transition-colors hover:text-white">TX</Link>
+                {" · "}
+                <Link href="/locations/new-england" className="transition-colors hover:text-white">New England</Link>
               </span>
             </p>
           </div>

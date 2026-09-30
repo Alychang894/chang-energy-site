@@ -17,6 +17,11 @@ export async function GET() {
   ${url("/", "weekly", "1.0")}
   ${url("/solutions", "monthly", "0.9")}
   ${url("/industries", "monthly", "0.9")}
+  ${url("/why-chang-energy", "monthly", "0.9")}
+  ${url("/locations/pennsylvania", "monthly", "0.9")}
+  ${url("/locations/texas", "monthly", "0.9")}
+  ${url("/locations/ohio", "monthly", "0.9")}
+  ${url("/locations/new-england", "monthly", "0.9")}
   ${url("/resources", "weekly", "0.8")}
   ${url("/contact", "monthly", "0.8")}
 </urlset>`;
