@@ -19,6 +19,7 @@ export async function GET() {
   ${url("/blog/pjm-peak-demand-charges", "2025-10-15T00:00:00.000Z")}
   ${url("/blog/lower-commercial-energy-bills", "2025-10-10T00:00:00.000Z")}
   ${url("/blog/winter-energy-checklist", "2026-09-30T00:00:00.000Z")}
+  ${url("/blog/energy-contract-terms-translated", "2026-10-02T00:00:00.000Z")}
 </urlset>`;
   return new Response(xml, {
     headers: { "Content-Type": "application/xml; charset=utf-8" },

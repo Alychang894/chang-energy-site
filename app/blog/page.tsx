@@ -20,6 +20,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "energy-contract-terms-translated",
+    title: "Your Energy Contract, Translated: 7 Terms That Quietly Cost You Money",
+    date: "2026-10-02",
+    summary:
+      "Evergreen clauses, bandwidth, early termination fees — the contract terms nobody explains to small-business owners, translated into plain English.",
+    tag: "Contracts",
+  },
+  {
     slug: "winter-energy-checklist",
     title: "5 Energy Moves to Make Before Winter",
     date: "2026-09-30",
