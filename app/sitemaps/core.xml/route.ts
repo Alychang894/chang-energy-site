@@ -19,6 +19,8 @@ export async function GET() {
   ${url("/industries", "monthly", "0.9")}
   ${url("/why-chang-energy", "monthly", "0.9")}
   ${url("/contract-expired", "monthly", "0.9")}
+  ${url("/how-brokers-get-paid", "monthly", "0.9")}
+  ${url("/demand-charges-explained", "monthly", "0.9")}
   ${url("/locations/pennsylvania", "monthly", "0.9")}
   ${url("/locations/texas", "monthly", "0.9")}
   ${url("/locations/ohio", "monthly", "0.9")}
