@@ -5,9 +5,12 @@ import Script from "next/script";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Solutions | Chang Energy",
+  title: "Solutions",
   description:
     "Transparent energy procurement, capacity and demand-charge optimization, utility bill audits, and executive reporting for businesses across PA, OH, TX, and New England.",
+  alternates: {
+    canonical: "/solutions",
+  },
 };
 
 const SITE_URL = "https://www.changenergygroup.com";

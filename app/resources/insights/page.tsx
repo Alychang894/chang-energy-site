@@ -4,9 +4,12 @@ import FadeIn from "../../../components/FadeIn";
 import { POSTS } from "./_data";
 
 export const metadata: Metadata = {
-  title: "Insights | Chang Energy",
+  title: "Insights ",
   description:
     "Short, operator-friendly articles on procurement, PLC/NSPL, and energy budgeting.",
+  alternates: {
+    canonical: "/resources/insights",
+  },
 };
 
 export default function InsightsPage() {

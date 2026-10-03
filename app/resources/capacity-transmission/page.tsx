@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Capacity & Transmission Playbook | Resources",
   description:
     "Practical PLC/NSPL reduction with targeted peak alerts and short, site-friendly curtailment windows.",
+  alternates: {
+    canonical: "/resources/capacity-transmission",
+  },
 };
 
 export default function CapacityTransmissionPage() {

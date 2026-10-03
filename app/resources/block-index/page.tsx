@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Block+Index Strategy Guide | Resources",
   description:
     "When fixed is safer, when index is cheaper—and how to size hedge blocks to match real usage.",
+  alternates: {
+    canonical: "/resources/block-index",
+  },
 };
 
 export default function BlockIndexGuidePage() {

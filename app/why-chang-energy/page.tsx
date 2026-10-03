@@ -8,9 +8,12 @@ import Link from "next/link";
 import FadeIn from "../../components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Why Lock In Your Electricity Rate | Chang Energy",
+  title: "Why Lock In Your Electricity Rate",
   description:
     "How commercial electricity rates work, what they actually did from 2013–2024, why they swing with weather and world events — and why smart businesses lock in one solid rate.",
+  alternates: {
+    canonical: "/why-chang-energy",
+  },
 };
 
 type Series = { label: string; color: string; dashed?: boolean; values: number[] };

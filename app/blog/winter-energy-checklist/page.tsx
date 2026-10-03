@@ -5,9 +5,12 @@ import HeroBanner from "@/components/blog/HeroBanner";
 import Callout from "@/components/blog/Callout";
 
 export const metadata: Metadata = {
-  title: "5 Energy Moves to Make Before Winter | Chang Energy",
+  title: "5 Energy Moves to Make Before Winter",
   description:
     "Winter is when electric bills surprise small businesses. Five practical moves — contract check, rate review, and more — to make before the cold hits.",
+  alternates: {
+    canonical: "/blog/winter-energy-checklist",
+  },
 };
 
 export default function Page() {

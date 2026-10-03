@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "How to Lower Commercial Energy Bills (Without Going 100% Fixed)",
   description:
     "Discover how block + index strategies, smart risk management, and transparent procurement can lower your commercial energy costs in the PJM market.",
+  alternates: {
+    canonical: "/blog/lower-commercial-energy-bills",
+  },
 };
 
 export default function Page() {

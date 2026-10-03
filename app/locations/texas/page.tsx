@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Commercial Electricity in Texas | Chang Energy",
+  title: "Commercial Electricity in Texas",
   description:
     "Texas businesses in deregulated areas can choose their electricity provider. How ERCOT choice works, 4CP transmission charges, and beating summer peaks — explained plainly.",
+  alternates: {
+    canonical: "/locations/texas",
+  },
 };
 
 const faqs = [

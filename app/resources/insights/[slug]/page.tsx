@@ -8,8 +8,16 @@ type Params = { params: { slug: string } };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = POSTS.find((p) => p.slug === params.slug);
-  if (!post) return { title: "Post | Chang Energy" };
-  return { title: `${post.title} | Chang Energy`, description: post.summary };
+  if (!post)
+    return {
+      title: "Post Not Found",
+      alternates: { canonical: "/resources/insights" },
+    };
+  return {
+    title: post.title,
+    description: post.summary,
+    alternates: { canonical: `/resources/insights/${params.slug}` },
+  };
 }
 
 export default function PostPage({ params }: Params) {

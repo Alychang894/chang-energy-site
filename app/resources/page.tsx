@@ -5,9 +5,10 @@ import Script from "next/script";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Resources | Chang Energy",
+  title: "Resources",
   description:
     "Operator-friendly guides and templates: Capacity & Transmission Playbook, Block+Index Strategy Guide, and an Energy Budget Template.",
+  alternates: { canonical: "/resources" },
 };
 
 const SITE_URL = "https://www.changenergygroup.com";

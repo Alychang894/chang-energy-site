@@ -5,9 +5,10 @@ import FadeIn from "../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Blog | Chang Energy",
+  title: "Blog",
   description:
     "Short, practical posts for production and facilities leaders: peak demand, procurement strategy, and budget control.",
+  alternates: { canonical: "/blog" },
 };
 
 type Post = {

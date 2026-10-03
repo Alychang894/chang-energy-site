@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Commercial Electricity in New England | Chang Energy",
+  title: "Commercial Electricity in New England",
   description:
     "Businesses in Massachusetts, Rhode Island, Connecticut, and New Hampshire can choose their electricity supplier. How New England choice works and how to beat winter price spikes.",
+  alternates: {
+    canonical: "/locations/new-england",
+  },
 };
 
 const faqs = [

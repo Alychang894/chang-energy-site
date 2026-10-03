@@ -64,9 +64,6 @@ export const metadata: Metadata = {
       "Transparent energy procurement and demand strategy for businesses across PA, OH, TX, and New England.",
     images: ["/favicon.png"],
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

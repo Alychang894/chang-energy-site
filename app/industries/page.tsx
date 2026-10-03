@@ -5,9 +5,12 @@ import Script from "next/script";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Industries | Chang Energy",
+  title: "Industries ",
   description:
     "Energy strategies for cold storage, manufacturing, multi-site chains, healthcare, offices, restaurants, and more across PA, OH, TX, and New England.",
+  alternates: {
+    canonical: "/industries",
+  },
 };
 
 const SITE_URL = "https://www.changenergygroup.com";

@@ -1,8 +1,16 @@
 // app/page.tsx
+import type { Metadata } from "next";
 import Hero from "../components/Hero";
 import Offering from "../components/Offering";
 import FadeIn from "../components/FadeIn";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Business Electricity Broker for Small Business",
+  description:
+    "Chang Energy negotiates lower commercial electricity rates for small businesses in PA, OH, TX, and New England. Free bill review — upload your bill and see what you should be paying.",
+  alternates: { canonical: "/" },
+};
 
 function TrustBar() {
   const items = [

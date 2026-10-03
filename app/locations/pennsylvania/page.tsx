@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Commercial Electricity in Pennsylvania | Chang Energy",
+  title: "Commercial Electricity in Pennsylvania",
   description:
     "Pennsylvania businesses can choose their electricity supplier. Learn how PA energy choice works, what to watch on your PECO, PPL, or Duquesne bill, and how we shop suppliers for you.",
+  alternates: {
+    canonical: "/locations/pennsylvania",
+  },
 };
 
 const SITE_URL = "https://www.changenergygroup.com";

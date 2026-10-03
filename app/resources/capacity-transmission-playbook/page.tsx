@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Capacity & Transmission Playbook | Resources | Chang Energy",
+  title: "Capacity & Transmission Playbook | Resources ",
   description:
     "Practical PLC/NSPL tactics to cut demand charges without disrupting operations.",
+  alternates: {
+    canonical: "/resources/capacity-transmission-playbook",
+  },
 };
 
 export default function Page() {

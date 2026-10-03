@@ -4,9 +4,12 @@ import FadeIn from "../../../components/FadeIn";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cold Storage Energy Strategy | Chang Energy",
+  title: "Cold Storage Energy Strategy ",
   description:
     "Demand-charge and procurement strategy for cold storage and refrigerated warehouses: defrost layering, compressor sequencing, door heaters, and PLC reduction — without risking product.",
+  alternates: {
+    canonical: "/industries/cold-storage",
+  },
 };
 
 const challenges = [

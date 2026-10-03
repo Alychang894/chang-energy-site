@@ -1,0 +1,28 @@
+# Chang Energy
+
+> Chang Energy is a commercial electricity broker for small and mid-sized businesses in Pennsylvania, Ohio, Texas, and New England. We shop vetted electricity suppliers, lock in fixed rates, manage demand charges, and audit commercial electric bills — free bill review, no obligation.
+
+## Services
+
+- [Free commercial bill review](https://www.changenergygroup.com/contact): line-by-line audit of your electric bill — supply rate, demand charges, contract end date.
+- [What we do](https://www.changenergygroup.com/solutions): supplier procurement, capacity & demand optimization, bill audits, budget tracking.
+- [Why lock in your rate](https://www.changenergygroup.com/why-chang-energy): plain-English explainer of how commercial electricity rates work, with real 2013–2024 rate data.
+
+## Service areas
+
+- [Pennsylvania](https://www.changenergygroup.com/locations/pennsylvania): PECO, PPL, Duquesne Light, FirstEnergy territories; PJM capacity (PLC) and transmission (NSPL) tags.
+- [Texas](https://www.changenergygroup.com/locations/texas): ERCOT retail choice; Oncor, CenterPoint, AEP Texas, TNMP; 4CP summer peak transmission charges.
+- [Ohio](https://www.changenergygroup.com/locations/ohio): AEP Ohio, Duke Energy Ohio, AES Ohio, FirstEnergy; PUCO choice program; PJM capacity tags.
+- [New England](https://www.changenergygroup.com/locations/new-england): Massachusetts, Rhode Island, Connecticut, New Hampshire; Eversource, National Grid, Unitil; winter price-spike protection.
+
+## Free tools and guides
+
+- [Blended rate calculator](https://www.changenergygroup.com/resources/blended-rate-calculator): compute your true all-in ¢/kWh from your bill.
+- [Resources](https://www.changenergygroup.com/resources): block+index guides, capacity & transmission playbook, energy budget template.
+- [Blog](https://www.changenergygroup.com/blog): plain-English posts on procurement, peak demand, and budget control.
+
+## Contact
+
+- Free bill review: https://www.changenergygroup.com/contact
+- Email: ben@changenergygroup.com (primary), support@changenergygroup.com
+- Phone: +1-267-340-8300 (footer only)

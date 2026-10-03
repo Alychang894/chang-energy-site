@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface HeroProps {
   title: string;
@@ -18,10 +19,15 @@ export default function Hero({ title, subtitle, imageUrl, eyebrow, ctas }: HeroP
   }, []);
 
   return (
-    <section
-      className="relative flex min-h-[88vh] items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    >
+    <section className="relative flex min-h-[88vh] items-center justify-center">
+      <Image
+        src={imageUrl}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
       {/* deep navy gradient for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/60 to-slate-950/90" />
 

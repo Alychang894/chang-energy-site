@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Commercial Electricity in Ohio | Chang Energy",
+  title: "Commercial Electricity in Ohio",
   description:
     "Ohio businesses can shop for electricity supply through PUCO's choice program. How Ohio energy choice works, what to watch on AEP, Duke, and FirstEnergy bills, and how we help.",
+  alternates: {
+    canonical: "/locations/ohio",
+  },
 };
 
 const faqs = [

@@ -7,9 +7,12 @@ import Callout from "@/components/blog/Callout";
 import StatBar from "@/components/blog/StatBar";
 
 export const metadata: Metadata = {
-  title: "PJM Peak Demand Charges: 3 Moves to Cut PLC Without Disrupting Ops | Chang Energy",
+  title: "PJM Peak Demand Charges: 3 Moves to Cut PLC Without Disrupting Ops ",
   description:
     "Learn how to reduce PJM Peak Load Contribution (PLC) and Transmission (NSPL) costs without slowing down production—smart forecasting, short curtailment windows, and trend analysis explained.",
+  alternates: {
+    canonical: "/blog/pjm-peak-demand-charges",
+  },
 };
 
 export default function Page() {

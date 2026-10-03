@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Block+Index Strategy Guide | Resources | Chang Energy",
+  title: "Block+Index Strategy Guide | Resources ",
   description:
     "When fixed is safer, when index is cheaper, and how to size blocks by risk.",
+  alternates: {
+    canonical: "/resources/block-index-strategy-guide",
+  },
 };
 
 export default function Page() {

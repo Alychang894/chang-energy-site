@@ -5,9 +5,12 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Energy Budget Template | Resources | Chang Energy",
+  title: "Energy Budget Template | Resources ",
   description:
     "A simple model for budget vs. actuals with variance explanations and KPI rollups.",
+  alternates: {
+    canonical: "/resources/energy-budget-template",
+  },
 };
 
 export default function Page() {

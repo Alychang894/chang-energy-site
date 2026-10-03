@@ -7,9 +7,12 @@ import HighlightList from "@/components/blog/HighlightList";
 import QuoteBlock from "@/components/blog/QuoteBlock";
 
 export const metadata: Metadata = {
-  title: "Your Energy Contract, Translated: 7 Terms That Quietly Cost You Money | Chang Energy",
+  title: "Your Energy Contract, Translated: 7 Terms That Quietly Cost You Money",
   description:
     "Evergreen clauses, bandwidth, early termination fees — the energy contract terms nobody explains to small-business owners, translated into plain English.",
+  alternates: {
+    canonical: "/blog/energy-contract-terms-translated",
+  },
 };
 
 export default function Page() {
