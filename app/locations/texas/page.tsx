@@ -5,15 +5,27 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Commercial Electricity in Texas",
+  title: "Average Commercial Electricity Rates in Texas",
   description:
-    "Texas businesses in deregulated areas can choose their electricity provider. How ERCOT choice works, 4CP transmission charges, and beating summer peaks — explained plainly.",
+    "Texas averages 8.64¢/kWh for commercial electricity — among the lowest in the US. See how your TDU compares, what 4CP peaks cost, and get a free bill review.",
   alternates: {
     canonical: "/locations/texas",
   },
 };
 
 const faqs = [
+  {
+    q: "What is the average commercial electricity rate in Texas?",
+    a: "About 8.64¢/kWh statewide, per EIA commercial retail data (checked October 2026) — among the lowest in the country. But Texas also has the widest spread between the cheapest and priciest plans, so the average says little about any single bill.",
+  },
+  {
+    q: "Why is my commercial rate higher than the Texas average?",
+    a: "Usually one of three things: a teaser plan whose usage tripwires you missed, a contract that rolled to a holdover rate, or 4CP transmission charges from unmanaged summer peaks. Upload your bill and we'll find which one.",
+  },
+  {
+    q: "Which utility delivers my power in Texas?",
+    a: "Your TDSP — the name is printed on your bill. In most deregulated areas it's Oncor, CenterPoint Energy, AEP Texas, or Texas-New Mexico Power (TNMP). You can't choose your TDSP, but you can choose the retail electric provider that sets your supply rate.",
+  },
   {
     q: "Is my Texas business in a deregulated area?",
     a: "Most of Texas is — including Houston, Dallas–Fort Worth, and surrounding areas served by TDSPs like CenterPoint and Oncor. But municipal utilities (like Austin Energy or CPS Energy in San Antonio) and electric cooperatives are generally not open to retail choice. Your bill's TDSP name tells you where you stand.",
@@ -32,6 +44,41 @@ const faqs = [
   },
 ];
 
+const bars = [
+  { label: "Texas", value: 8.64, highlight: true },
+  { label: "Ohio", value: 13.12, highlight: false },
+  { label: "Pennsylvania", value: 14.21, highlight: false },
+  { label: "Massachusetts", value: 25.64, highlight: false },
+];
+const maxBar = Math.max(...bars.map((b) => b.value));
+
+const utilities = [
+  {
+    name: "Oncor",
+    area: "Dallas–Fort Worth",
+    watch:
+      "The state's largest TDU. Delivery charges are fixed by tariff — every dollar of savings comes from your supply rate and managing the 4CP summer peaks.",
+  },
+  {
+    name: "CenterPoint Energy",
+    area: "Houston",
+    watch:
+      "Same story as Oncor: delivery is set, so the fight is entirely on the retail plan you pick — and how you handle August afternoons.",
+  },
+  {
+    name: "AEP Texas",
+    area: "South & west Texas",
+    watch:
+      "Check your bill's TDSP name — if you're in AEP territory, you're in choice territory, and the plan fine print matters more than the headline rate.",
+  },
+  {
+    name: "Texas-New Mexico Power",
+    area: "TNMP territories",
+    watch:
+      "Smaller footprint, same choice rules. Teaser-rate tripwires show up here too — always compare plans on your actual usage, never the advertised average.",
+  },
+];
+
 export default function TexasPage() {
   return (
     <main>
@@ -47,6 +94,7 @@ export default function TexasPage() {
         })}
       </Script>
 
+      {/* Hero */}
       <section className="band-dark relative overflow-hidden">
         <div
           aria-hidden
@@ -79,7 +127,66 @@ export default function TexasPage() {
         </div>
       </section>
 
+      {/* The number */}
       <section className="bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn>
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
+              Rates checked October 2026
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Texas&apos;s commercial average: 8.64¢/kWh
+            </h2>
+            <p className="mt-3 max-w-3xl text-slate-600">
+              Among the lowest commercial averages in the country — but
+              Texas also has the widest spread between the cheapest and
+              priciest plans, so the average hides more here than
+              anywhere. Source: U.S. Energy Information Administration
+              commercial retail data, via Integrity Energy.
+            </p>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <div className="mt-8 max-w-2xl space-y-5">
+              {bars.map((b) => (
+                <div key={b.label}>
+                  <div className="flex items-baseline justify-between">
+                    <span
+                      className={`text-sm font-semibold ${
+                        b.highlight ? "text-slate-900" : "text-slate-600"
+                      }`}
+                    >
+                      {b.label}
+                    </span>
+                    <span className="text-sm tabular-nums text-slate-600">
+                      {b.value.toFixed(2)}¢/kWh
+                    </span>
+                  </div>
+                  <div className="mt-1.5 h-7 overflow-hidden rounded-lg bg-slate-100">
+                    <div
+                      className={`h-7 rounded-lg ${
+                        b.highlight ? "bg-brand-600" : "bg-slate-300"
+                      }`}
+                      style={{ width: `${(b.value / maxBar) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 max-w-2xl text-sm text-slate-600">
+              Massachusetts businesses pay 25.64¢/kWh on average — nearly
+              3x Texas. Cheap on average doesn&apos;t mean cheap for you.
+            </p>
+            <p className="mt-2 max-w-2xl text-xs text-slate-500">
+              Averages are context, not your price. Your bill depends on
+              your TDU, your plan&apos;s fine print, and your summer peak
+              behavior — more on that below.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* How choice works */}
+      <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
@@ -118,14 +225,74 @@ export default function TexasPage() {
         </div>
       </section>
 
+      {/* Per-TDU watch list */}
+      <section className="bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Your TDU, your watch-list
+            </h2>
+            <p className="mt-3 max-w-3xl text-slate-600">
+              In Texas you don&apos;t choose your delivery utility — but
+              knowing which one you&apos;re in tells you where the savings
+              actually come from:
+            </p>
+          </FadeIn>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {utilities.map((u, i) => (
+              <FadeIn key={u.name} delay={i * 80}>
+                <div className="card h-full p-6">
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {u.name}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-brand-700">
+                    {u.area}
+                  </p>
+                  <p className="mt-2 text-[15px] text-slate-600">{u.watch}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn delay={120}>
+            <p className="mt-8 max-w-3xl text-[15px] text-slate-600">
+              Your exact number depends on your TDU, your plan, and your
+              usage — upload your bill and we&apos;ll tell you your true
+              all-in rate and what you should be paying, in one business
+              day.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Why the average lies + what drives your bill */}
       <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              What to watch on your Texas commercial bill
+              Why the official average lies (a little)
             </h2>
+            <p className="mt-4 max-w-3xl text-lg text-slate-600">
+              That 8.64¢ is real EIA data — but Texas is where averages
+              lie the most. It blends Dallas offices with West Texas
+              operations, straightforward fixed-rate plans with tiered
+              teaser plans that only hit their advertised rate at exactly
+              1,000 kWh. Two businesses with identical usage can pay
+              wildly different rates on the same TDU.
+            </p>
+            <p className="mt-4 max-w-3xl text-lg text-slate-600">
+              Treat it as the weather report for Texas: useful context,
+              not your price. Your price comes down to three things —
+              which retail plan you&apos;re on, whether you&apos;re
+              tripping its fine-print thresholds, and how you behave
+              during the four summer peak hours.
+            </p>
           </FadeIn>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <FadeIn delay={80}>
+            <h3 className="mt-10 text-xl font-bold tracking-tight text-slate-900">
+              What drives YOUR bill in Texas
+            </h3>
+          </FadeIn>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
             {[
               {
                 title: "The 4CP summer peaks",
@@ -155,15 +322,52 @@ export default function TexasPage() {
             ))}
           </div>
           <FadeIn delay={120}>
-            <p className="mt-8 text-sm text-slate-500">
-              Delivery utilities (TDSPs) across our Texas footprint include
-              Oncor, CenterPoint Energy, AEP Texas, and Texas-New Mexico
-              Power (TNMP).
+            <p className="mt-8 max-w-3xl text-[15px] text-slate-600">
+              Two topics worth their own guides:{" "}
+              <Link
+                href="/demand-charges-explained"
+                className="font-semibold text-brand-700 underline"
+              >
+                demand charges, explained
+              </Link>{" "}
+              — and{" "}
+              <Link
+                href="/contract-expired"
+                className="font-semibold text-brand-700 underline"
+              >
+                what happens when your contract expires
+              </Link>
+              .
             </p>
           </FadeIn>
         </div>
       </section>
 
+      {/* Mid-page CTA */}
+      <section className="bg-white py-14 md:py-16">
+        <div className="mx-auto max-w-3xl px-6">
+          <FadeIn>
+            <div className="card p-8 text-center">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+                Know your number, not the average.
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-[15px] text-slate-600">
+                Upload your bill and we&apos;ll tell you your true all-in
+                rate, when your contract ends, and what you should be
+                paying — free, back to you in one business day.
+              </p>
+              <Link
+                href="/contact"
+                className="btn btn-primary mt-6 inline-flex"
+              >
+                Upload My Bill
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* FAQ */}
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-6">
           <FadeIn>
@@ -184,6 +388,7 @@ export default function TexasPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="band-dark py-14 md:py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <FadeIn>

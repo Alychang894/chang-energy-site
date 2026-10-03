@@ -5,17 +5,27 @@ import FadeIn from "../../../components/FadeIn";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Commercial Electricity in Pennsylvania",
+  title: "Average Commercial Electricity Rates in Pennsylvania",
   description:
-    "Pennsylvania businesses can choose their electricity supplier. Learn how PA energy choice works, what to watch on your PECO, PPL, or Duquesne bill, and how we shop suppliers for you.",
+    "Pennsylvania averages 14.21¢/kWh for commercial electricity. See how PA compares to neighboring states, what drives your bill, and get a free bill review.",
   alternates: {
     canonical: "/locations/pennsylvania",
   },
 };
 
-const SITE_URL = "https://www.changenergygroup.com";
-
 const faqs = [
+  {
+    q: "What is the average commercial electricity rate in Pennsylvania?",
+    a: "About 14.21¢/kWh statewide, per EIA commercial retail data (checked October 2026). But that's an average across utilities, co-ops, and contract types — your bill depends on your utility, your usage pattern, and whether you're on the default Price to Compare or a competitive fixed contract.",
+  },
+  {
+    q: "Why is my commercial rate higher than the Pennsylvania average?",
+    a: "The three usual suspects: you're on the utility default instead of a competitive contract, your demand charges or PJM capacity tags are inflated, or an old contract quietly rolled to a variable rate. A free bill review identifies which one, usually within a business day.",
+  },
+  {
+    q: "Which utility delivers my power in Pennsylvania?",
+    a: "Check the delivery section of your bill. In most of the state it's PECO, PPL Electric Utilities, Duquesne Light, or a FirstEnergy company — Met-Ed, Penelec, Penn Power, or West Penn Power. Your delivery utility never changes when you switch suppliers; only the supply rate does.",
+  },
   {
     q: "Do I have to switch electricity suppliers in Pennsylvania?",
     a: "No — switching is optional. If you don't choose, your utility (PECO, PPL, Duquesne Light, etc.) supplies your electricity at its default service rate, called the Price to Compare. But that default rate changes periodically and is rarely the cheapest option for a business.",
@@ -31,6 +41,41 @@ const faqs = [
   {
     q: "How far in advance should I shop for a new rate?",
     a: "Start 3–6 months before your contract ends. That gives time to compare real supplier offers instead of rushing into whatever's available the week your contract expires — which is when most businesses overpay.",
+  },
+];
+
+const bars = [
+  { label: "Pennsylvania", value: 14.21, highlight: true },
+  { label: "Ohio", value: 13.12, highlight: false },
+  { label: "Texas", value: 8.64, highlight: false },
+  { label: "Massachusetts", value: 25.64, highlight: false },
+];
+const maxBar = Math.max(...bars.map((b) => b.value));
+
+const utilities = [
+  {
+    name: "PECO",
+    area: "Philadelphia region",
+    watch:
+      "Your default is the Price to Compare — it resets periodically, and most businesses just drift on it. That's the first number we beat.",
+  },
+  {
+    name: "PPL Electric Utilities",
+    area: "Central & eastern PA",
+    watch:
+      "PPL's default shifts with auction cycles. Compare it against fixed supplier offers before assuming it's fine.",
+  },
+  {
+    name: "Duquesne Light",
+    area: "Pittsburgh area",
+    watch:
+      "A smaller territory where fewer businesses shop — which is exactly why the ones who do often find the best spreads.",
+  },
+  {
+    name: "FirstEnergy",
+    area: "Met-Ed, Penelec, Penn Power, West Penn",
+    watch:
+      "Four utilities, four default rates. If you have sites in more than one territory, you're juggling multiple Price to Compare numbers — we line them up side by side.",
   },
 ];
 
@@ -82,8 +127,67 @@ export default function PennsylvaniaPage() {
         </div>
       </section>
 
-      {/* How choice works */}
+      {/* The number */}
       <section className="bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn>
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
+              Rates checked October 2026
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Pennsylvania&apos;s commercial average: 14.21¢/kWh
+            </h2>
+            <p className="mt-3 max-w-3xl text-slate-600">
+              That&apos;s the statewide average commercial electricity
+              rate — what PA businesses pay per kilowatt-hour, averaged
+              across utilities, co-ops, and contract types. Source: U.S.
+              Energy Information Administration commercial retail data,
+              via Integrity Energy.
+            </p>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <div className="mt-8 max-w-2xl space-y-5">
+              {bars.map((b) => (
+                <div key={b.label}>
+                  <div className="flex items-baseline justify-between">
+                    <span
+                      className={`text-sm font-semibold ${
+                        b.highlight ? "text-slate-900" : "text-slate-600"
+                      }`}
+                    >
+                      {b.label}
+                    </span>
+                    <span className="text-sm tabular-nums text-slate-600">
+                      {b.value.toFixed(2)}¢/kWh
+                    </span>
+                  </div>
+                  <div className="mt-1.5 h-7 overflow-hidden rounded-lg bg-slate-100">
+                    <div
+                      className={`h-7 rounded-lg ${
+                        b.highlight ? "bg-brand-600" : "bg-slate-300"
+                      }`}
+                      style={{ width: `${(b.value / maxBar) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 max-w-2xl text-sm text-slate-600">
+              Massachusetts businesses pay 25.64¢/kWh on average — nearly
+              3x Texas. If you think PA rates sting, New England is another
+              world.
+            </p>
+            <p className="mt-2 max-w-2xl text-xs text-slate-500">
+              Averages are context, not your price. Your bill depends on
+              your utility, your usage pattern, and your contract — more
+              on that below.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* How choice works */}
+      <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
@@ -123,15 +227,72 @@ export default function PennsylvaniaPage() {
         </div>
       </section>
 
-      {/* What to watch */}
+      {/* Per-utility watch list */}
+      <section className="bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Your utility, your watch-list
+            </h2>
+            <p className="mt-3 max-w-3xl text-slate-600">
+              We don&apos;t publish per-utility rates — they move too fast
+              for a webpage to stay honest. Here&apos;s what to watch at
+              each major PA utility instead:
+            </p>
+          </FadeIn>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {utilities.map((u, i) => (
+              <FadeIn key={u.name} delay={i * 80}>
+                <div className="card h-full p-6">
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {u.name}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-brand-700">
+                    {u.area}
+                  </p>
+                  <p className="mt-2 text-[15px] text-slate-600">{u.watch}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn delay={120}>
+            <p className="mt-8 max-w-3xl text-[15px] text-slate-600">
+              Your exact number depends on your utility and your usage —
+              upload your bill and we&apos;ll tell you what you&apos;re
+              paying and what you should be paying, in one business day.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Why the average lies + what drives your bill */}
       <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              What to watch on your PA commercial bill
+              Why the official average lies (a little)
             </h2>
+            <p className="mt-4 max-w-3xl text-lg text-slate-600">
+              That 14.21¢ is real EIA data — but it&apos;s a statewide
+              average, and averages hide as much as they reveal. It blends
+              municipal utilities and co-ops (not in the choice market at
+              all) with bundled utility rates and competitive supply
+              contracts. It averages corner delis with 24-hour factories.
+            </p>
+            <p className="mt-4 max-w-3xl text-lg text-slate-600">
+              Treat it as the weather report for Pennsylvania: useful
+              context, not your price. Your price comes down to three
+              things — which utility delivers your power, how and when
+              you use it, and whether you&apos;re on the default rate or
+              a competitive contract.
+            </p>
           </FadeIn>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <FadeIn delay={80}>
+            <h3 className="mt-10 text-xl font-bold tracking-tight text-slate-900">
+              What drives YOUR bill in PA
+            </h3>
+          </FadeIn>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
             {[
               {
                 title: "The Price to Compare trap",
@@ -161,11 +322,47 @@ export default function PennsylvaniaPage() {
             ))}
           </div>
           <FadeIn delay={120}>
-            <p className="mt-8 text-sm text-slate-500">
-              Utilities we work with across Pennsylvania include PECO, PPL
-              Electric Utilities, Duquesne Light, Met-Ed, Penelec, Penn
-              Power, and West Penn Power.
+            <p className="mt-8 max-w-3xl text-[15px] text-slate-600">
+              Two of these deserve their own guides:{" "}
+              <Link
+                href="/demand-charges-explained"
+                className="font-semibold text-brand-700 underline"
+              >
+                demand charges, explained
+              </Link>{" "}
+              — and{" "}
+              <Link
+                href="/contract-expired"
+                className="font-semibold text-brand-700 underline"
+              >
+                what happens when your contract expires
+              </Link>
+              .
             </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Mid-page CTA */}
+      <section className="bg-white py-14 md:py-16">
+        <div className="mx-auto max-w-3xl px-6">
+          <FadeIn>
+            <div className="card p-8 text-center">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+                Know your number, not the average.
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-[15px] text-slate-600">
+                Upload your bill and we&apos;ll tell you your exact rate,
+                when your contract ends, and what you should be paying —
+                free, back to you in one business day.
+              </p>
+              <Link
+                href="/contact"
+                className="btn btn-primary mt-6 inline-flex"
+              >
+                Upload My Bill
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
