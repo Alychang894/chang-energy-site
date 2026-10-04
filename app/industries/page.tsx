@@ -59,6 +59,7 @@ const groups = [
   },
   {
     title: "Restaurants & Chains",
+    href: "/industries/restaurants",
     blurb:
       "High-usage kitchens with thin margins. We benchmark rates, time contracts to avoid spikes, and keep bills predictable.",
     bullets: [

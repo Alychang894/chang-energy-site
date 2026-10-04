@@ -17,6 +17,9 @@ export async function GET() {
   ${url("/", "weekly", "1.0")}
   ${url("/solutions", "monthly", "0.9")}
   ${url("/industries", "monthly", "0.9")}
+  ${url("/industries/restaurants", "monthly", "0.8")}
+  ${url("/industries/laundromats", "monthly", "0.8")}
+  ${url("/industries/auto-shops", "monthly", "0.8")}
   ${url("/why-chang-energy", "monthly", "0.9")}
   ${url("/contract-expired", "monthly", "0.9")}
   ${url("/how-brokers-get-paid", "monthly", "0.9")}
