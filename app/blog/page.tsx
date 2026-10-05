@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "commercial-electric-bill-decoded",
+    title: "Your Commercial Electric Bill, Decoded: The 3 Lines That Actually Matter",
+    date: "2026-10-05",
+    summary:
+      "Supply, delivery, demand — what each line of your business electric bill means, which one you can actually negotiate, and five things to check before winter.",
+    tag: "Billing",
+  },
+  {
     slug: "energy-contract-terms-translated",
     title: "Your Energy Contract, Translated: 7 Terms That Quietly Cost You Money",
     date: "2026-10-02",
