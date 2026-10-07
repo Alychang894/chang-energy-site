@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "when-to-renew-energy-contract",
+    title: "When to Renew Your Energy Contract: A Small-Business Owner's Calendar",
+    date: "2026-10-07",
+    summary:
+      "Timing matters as much as the supplier you pick. A plain-English calendar for when to shop, when to sign, and when to sit tight — plus why October is the sweet spot.",
+    tag: "Renewal Strategy",
+  },
+  {
     slug: "commercial-electric-bill-decoded",
     title: "Your Commercial Electric Bill, Decoded: The 3 Lines That Actually Matter",
     date: "2026-10-05",
