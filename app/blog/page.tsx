@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "restaurant-energy-costs",
+    title: "Running a Restaurant? Your Energy Bill Is Eating Your Margins",
+    date: "2026-10-09",
+    summary:
+      "Restaurants use far more energy per square foot than most businesses. Where that energy goes, the part of the bill you can shop, and the fall checks to make before winter.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "when-to-renew-energy-contract",
     title: "When to Renew Your Energy Contract: A Small-Business Owner's Calendar",
     date: "2026-10-07",
