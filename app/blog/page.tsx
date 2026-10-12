@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "laundromat-energy-costs",
+    title: "Laundromat Energy Costs: The Bill Behind Every Load",
+    date: "2026-10-12",
+    summary:
+      "Hot water and dryers drive most of a laundromat's energy bill. Where the money goes, which part of the bill you can shop, and three fall checks to make before winter.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "restaurant-energy-costs",
     title: "Running a Restaurant? Your Energy Bill Is Eating Your Margins",
     date: "2026-10-09",
