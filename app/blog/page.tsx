@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "auto-shop-energy-costs",
+    title: "Auto Shop Energy Costs: Where the Bill Hides in the Bays",
+    date: "2026-10-14",
+    summary:
+      "Compressors, bay doors, and bright lights drive an auto shop's energy bill. Where the money goes, which part of the bill you can shop, and three fall checks to make before winter.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "laundromat-energy-costs",
     title: "Laundromat Energy Costs: The Bill Behind Every Load",
     date: "2026-10-12",
