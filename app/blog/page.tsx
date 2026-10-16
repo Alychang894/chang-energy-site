@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "small-business-energy-budget",
+    title: "How to Budget for Energy This Winter Without Guessing",
+    date: "2026-10-16",
+    summary:
+      "Winter energy bills don't have to be a surprise. A simple way to budget from last winter's bills, separate what you can control, and build in a cushion.",
+    tag: "Budgeting",
+  },
+  {
     slug: "auto-shop-energy-costs",
     title: "Auto Shop Energy Costs: Where the Bill Hides in the Bays",
     date: "2026-10-14",
