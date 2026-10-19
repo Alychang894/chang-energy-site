@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "gym-energy-costs",
+    title: "Gym Energy Costs: The Bill Behind Every Workout",
+    date: "2026-10-19",
+    summary:
+      "Long hours, big open spaces, and endless hot showers drive a gym's energy bill. Where the money goes, which part of the bill you can shop, and three fall checks to make before the January rush.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "small-business-energy-budget",
     title: "How to Budget for Energy This Winter Without Guessing",
     date: "2026-10-16",
