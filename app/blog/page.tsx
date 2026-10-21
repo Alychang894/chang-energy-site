@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "why-energy-rates-go-up-in-winter",
+    title: "Why Energy Rates Go Up in Winter: Weather, Gas, and the Grid",
+    date: "2026-10-21",
+    summary:
+      "A winter bill rises two ways at once — you use more, and the market price can move. How cold snaps, natural gas, and a busy grid push rates up, and what your contract type means when they do.",
+    tag: "Market Basics",
+  },
+  {
     slug: "gym-energy-costs",
     title: "Gym Energy Costs: The Bill Behind Every Workout",
     date: "2026-10-19",
