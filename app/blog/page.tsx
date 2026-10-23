@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "small-manufacturer-energy-costs",
+    title: "Small Manufacturer Energy Costs: The Bill Behind Every Production Run",
+    date: "2026-10-23",
+    summary:
+      "Motors, compressed air, and a big shop to heat drive a small manufacturer's energy bill. Where the money goes, which part of the bill you can shop, and three fall checks to make before winter production.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "why-energy-rates-go-up-in-winter",
     title: "Why Energy Rates Go Up in Winter: Weather, Gas, and the Grid",
     date: "2026-10-21",
