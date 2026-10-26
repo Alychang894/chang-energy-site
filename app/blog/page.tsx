@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "fixed-vs-index-energy-rates",
+    title: "Fixed vs. Index vs. Block + Index: Which Rate Fits Your Business?",
+    date: "2026-10-26",
+    summary:
+      "Fixed, index, and block + index decide who feels it when the market moves — you or your supplier. A plain-English guide to picking the structure that fits your usage before winter.",
+    tag: "Procurement",
+  },
+  {
     slug: "small-manufacturer-energy-costs",
     title: "Small Manufacturer Energy Costs: The Bill Behind Every Production Run",
     date: "2026-10-23",
