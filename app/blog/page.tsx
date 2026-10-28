@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "commercial-bill-errors-to-check",
+    title: "5 Commercial Bill Errors Worth Checking Before Winter",
+    date: "2026-10-28",
+    summary:
+      "A rate that changed after renewal, an estimated meter read, or a charge that doesn't match your contract can quietly inflate your bill. Five errors to check before winter usage hits.",
+    tag: "Billing",
+  },
+  {
     slug: "fixed-vs-index-energy-rates",
     title: "Fixed vs. Index vs. Block + Index: Which Rate Fits Your Business?",
     date: "2026-10-26",
