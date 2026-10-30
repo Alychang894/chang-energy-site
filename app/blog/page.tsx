@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "capacity-and-transmission-charges-explained",
+    title: "Capacity and Transmission Charges, Explained",
+    date: "2026-10-30",
+    summary:
+      "Your supply rate is only part of the bill. What capacity and transmission charges pay for, why they show up even in a quiet month, and what to check before winter.",
+    tag: "Billing",
+  },
+  {
     slug: "commercial-bill-errors-to-check",
     title: "5 Commercial Bill Errors Worth Checking Before Winter",
     date: "2026-10-28",
