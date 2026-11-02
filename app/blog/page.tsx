@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "demand-response-programs-explained",
+    title: "Demand Response Programs: Can Your Business Get Paid to Power Down?",
+    date: "2026-11-02",
+    summary:
+      "Demand response pays businesses to use less power when the grid is stressed. How the programs work in PJM, how most small businesses join through a provider, and the honest questions to ask before you sign up.",
+    tag: "Programs",
+  },
+  {
     slug: "capacity-and-transmission-charges-explained",
     title: "Capacity and Transmission Charges, Explained",
     date: "2026-10-30",
