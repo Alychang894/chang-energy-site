@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "demand-charges-explained",
+    title: "Demand Charges Explained: Why Your Busiest Half Hour Sets Part of Your Bill",
+    date: "2026-11-04",
+    summary:
+      "Two businesses can use the same amount of electricity and pay very different bills. The difference is often the demand charge — billed on your highest short burst of usage, not your total. How it works, and how to soften it this winter.",
+    tag: "Billing",
+  },
+  {
     slug: "demand-response-programs-explained",
     title: "Demand Response Programs: Can Your Business Get Paid to Power Down?",
     date: "2026-11-02",
