@@ -7,7 +7,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Average Commercial Electricity Rates in Ohio",
   description:
-    "Ohio averages 13.12¢/kWh for commercial electricity. See how the SSO default compares, what PLC/NSPL tags add to your bill, and get a free bill review.",
+    "Ohio averages 12.31¢/kWh for commercial electricity. See how the SSO default compares, what PLC/NSPL tags add to your bill, and get a free bill review.",
   alternates: {
     canonical: "/locations/ohio",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "What is the average commercial electricity rate in Ohio?",
-    a: "About 13.12¢/kWh statewide, per EIA commercial retail data (checked October 2026). Your actual rate depends on your utility, your PLC/NSPL capacity tags, and whether you're on the SSO default or a competitive contract.",
+    a: "About 12.31¢/kWh statewide, per EIA commercial retail data (checked November 2026). Your actual rate depends on your utility, your PLC/NSPL capacity tags, and whether you're on the SSO default or a competitive contract.",
   },
   {
     q: "Why is my commercial rate higher than the Ohio average?",
@@ -45,10 +45,10 @@ const faqs = [
 ];
 
 const bars = [
-  { label: "Ohio", value: 13.12, highlight: true },
-  { label: "Pennsylvania", value: 14.21, highlight: false },
-  { label: "Texas", value: 8.64, highlight: false },
-  { label: "Massachusetts", value: 25.64, highlight: false },
+  { label: "Ohio", value: 12.31, highlight: true },
+  { label: "Pennsylvania", value: 13.93, highlight: false },
+  { label: "Texas", value: 8.96, highlight: false },
+  { label: "Massachusetts", value: 24.11, highlight: false },
 ];
 const maxBar = Math.max(...bars.map((b) => b.value));
 
@@ -132,10 +132,10 @@ export default function OhioPage() {
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
-              Rates checked October 2026
+              Rates checked November 2026
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              Ohio&apos;s commercial average: 13.12¢/kWh
+              Ohio&apos;s commercial average: 12.31¢/kWh
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
               A touch below Pennsylvania&apos;s average — but Ohio&apos;s
@@ -173,7 +173,7 @@ export default function OhioPage() {
               ))}
             </div>
             <p className="mt-4 max-w-2xl text-sm text-slate-600">
-              Massachusetts businesses pay 25.64¢/kWh on average — nearly
+              Massachusetts businesses pay 24.11¢/kWh on average — nearly
               double Ohio. Geography is destiny in electricity pricing.
             </p>
             <p className="mt-2 max-w-2xl text-xs text-slate-500">
@@ -272,7 +272,7 @@ export default function OhioPage() {
               Why the official average lies (a little)
             </h2>
             <p className="mt-4 max-w-3xl text-lg text-slate-600">
-              That 13.12¢ is real EIA data — but it&apos;s a statewide
+              That 12.31¢ is real EIA data — but it&apos;s a statewide
               average, and averages hide as much as they reveal. It blends
               municipal utilities and co-ops (not in the choice market at
               all) with SSO default rates and competitive supply

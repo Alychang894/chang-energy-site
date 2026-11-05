@@ -7,7 +7,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Average Commercial Electricity Rates in New England",
   description:
-    "New England commercial rates run 22–26¢/kWh — nearly 3x Texas. See MA, CT, RI, NH, ME averages, why winter spikes them, and get a free bill review.",
+    "New England commercial rates run 19–24¢/kWh — more than double Texas. See MA, CT, RI, NH, ME averages, why winter spikes them, and get a free bill review.",
   alternates: {
     canonical: "/locations/new-england",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "What is the average commercial electricity rate in New England?",
-    a: "It varies by state — MA 25.64¢, RI 24.84¢, CT 23.16¢, ME 22.46¢, NH 22.19¢ per kWh (EIA commercial data, checked October 2026). All are among the highest in the country, driven by winter natural gas constraints.",
+    a: "It varies by state — MA 24.11¢, RI 23.31¢, CT 19.29¢, ME 21.33¢, NH 20.99¢ per kWh (EIA commercial data, checked November 2026). All are among the highest in the country, driven by winter natural gas constraints.",
   },
   {
     q: "Why is my commercial rate higher than the New England average?",
@@ -45,12 +45,12 @@ const faqs = [
 ];
 
 const bars = [
-  { label: "Massachusetts", value: 25.64, highlight: true },
-  { label: "Rhode Island", value: 24.84, highlight: true },
-  { label: "Connecticut", value: 23.16, highlight: true },
-  { label: "Maine", value: 22.46, highlight: true },
-  { label: "New Hampshire", value: 22.19, highlight: true },
-  { label: "Texas (for contrast)", value: 8.64, highlight: false },
+  { label: "Massachusetts", value: 24.11, highlight: true },
+  { label: "Rhode Island", value: 23.31, highlight: true },
+  { label: "Connecticut", value: 19.29, highlight: true },
+  { label: "Maine", value: 21.33, highlight: true },
+  { label: "New Hampshire", value: 20.99, highlight: true },
+  { label: "Texas (for contrast)", value: 8.96, highlight: false },
 ];
 const maxBar = Math.max(...bars.map((b) => b.value));
 
@@ -129,16 +129,16 @@ export default function NewEnglandPage() {
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
-              Rates checked October 2026
+              Rates checked November 2026
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              New England&apos;s commercial average: 22–26¢/kWh
+              New England&apos;s commercial average: 19–24¢/kWh
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
               The highest regional rates in the country, state by state
               (EIA commercial retail data, via Integrity Energy):
-              Massachusetts 25.64¢, Rhode Island 24.84¢, Connecticut
-              23.16¢, Maine 22.46¢, New Hampshire 22.19¢.
+              Massachusetts 24.11¢, Rhode Island 23.31¢, Connecticut
+              19.29¢, Maine 21.33¢, New Hampshire 20.99¢.
             </p>
           </FadeIn>
           <FadeIn delay={100}>
@@ -169,7 +169,7 @@ export default function NewEnglandPage() {
               ))}
             </div>
             <p className="mt-4 max-w-2xl text-sm text-slate-600">
-              Massachusetts at 25.64¢ is nearly 3x Texas at 8.64¢. This is
+              Massachusetts at 24.11¢ is more than 2.5x Texas at 8.96¢. This is
               the painliest turf in American commercial electricity —
               and the place where a good contract matters most.
             </p>

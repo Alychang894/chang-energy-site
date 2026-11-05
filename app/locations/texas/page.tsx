@@ -7,7 +7,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Average Commercial Electricity Rates in Texas",
   description:
-    "Texas averages 8.64¢/kWh for commercial electricity — among the lowest in the US. See how your TDU compares, what 4CP peaks cost, and get a free bill review.",
+    "Texas averages 8.96¢/kWh for commercial electricity — among the lowest in the US. See how your TDU compares, what 4CP peaks cost, and get a free bill review.",
   alternates: {
     canonical: "/locations/texas",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "What is the average commercial electricity rate in Texas?",
-    a: "About 8.64¢/kWh statewide, per EIA commercial retail data (checked October 2026) — among the lowest in the country. But Texas also has the widest spread between the cheapest and priciest plans, so the average says little about any single bill.",
+    a: "About 8.96¢/kWh statewide, per EIA commercial retail data (checked November 2026) — among the lowest in the country. But Texas also has the widest spread between the cheapest and priciest plans, so the average says little about any single bill.",
   },
   {
     q: "Why is my commercial rate higher than the Texas average?",
@@ -45,10 +45,10 @@ const faqs = [
 ];
 
 const bars = [
-  { label: "Texas", value: 8.64, highlight: true },
-  { label: "Ohio", value: 13.12, highlight: false },
-  { label: "Pennsylvania", value: 14.21, highlight: false },
-  { label: "Massachusetts", value: 25.64, highlight: false },
+  { label: "Texas", value: 8.96, highlight: true },
+  { label: "Ohio", value: 12.31, highlight: false },
+  { label: "Pennsylvania", value: 13.93, highlight: false },
+  { label: "Massachusetts", value: 24.11, highlight: false },
 ];
 const maxBar = Math.max(...bars.map((b) => b.value));
 
@@ -132,10 +132,10 @@ export default function TexasPage() {
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
-              Rates checked October 2026
+              Rates checked November 2026
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              Texas&apos;s commercial average: 8.64¢/kWh
+              Texas&apos;s commercial average: 8.96¢/kWh
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
               Among the lowest commercial averages in the country — but
@@ -173,8 +173,8 @@ export default function TexasPage() {
               ))}
             </div>
             <p className="mt-4 max-w-2xl text-sm text-slate-600">
-              Massachusetts businesses pay 25.64¢/kWh on average — nearly
-              3x Texas. Cheap on average doesn&apos;t mean cheap for you.
+              Massachusetts businesses pay 24.11¢/kWh on average — more
+              than 2.5x Texas. Cheap on average doesn&apos;t mean cheap for you.
             </p>
             <p className="mt-2 max-w-2xl text-xs text-slate-500">
               Averages are context, not your price. Your bill depends on
@@ -272,7 +272,7 @@ export default function TexasPage() {
               Why the official average lies (a little)
             </h2>
             <p className="mt-4 max-w-3xl text-lg text-slate-600">
-              That 8.64¢ is real EIA data — but Texas is where averages
+              That 8.96¢ is real EIA data — but Texas is where averages
               lie the most. It blends Dallas offices with West Texas
               operations, straightforward fixed-rate plans with tiered
               teaser plans that only hit their advertised rate at exactly

@@ -7,7 +7,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Average Commercial Electricity Rates in Pennsylvania",
   description:
-    "Pennsylvania averages 14.21¢/kWh for commercial electricity. See how PA compares to neighboring states, what drives your bill, and get a free bill review.",
+    "Pennsylvania averages 13.93¢/kWh for commercial electricity. See how PA compares to neighboring states, what drives your bill, and get a free bill review.",
   alternates: {
     canonical: "/locations/pennsylvania",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "What is the average commercial electricity rate in Pennsylvania?",
-    a: "About 14.21¢/kWh statewide, per EIA commercial retail data (checked October 2026). But that's an average across utilities, co-ops, and contract types — your bill depends on your utility, your usage pattern, and whether you're on the default Price to Compare or a competitive fixed contract.",
+    a: "About 13.93¢/kWh statewide, per EIA commercial retail data (checked November 2026). But that's an average across utilities, co-ops, and contract types — your bill depends on your utility, your usage pattern, and whether you're on the default Price to Compare or a competitive fixed contract.",
   },
   {
     q: "Why is my commercial rate higher than the Pennsylvania average?",
@@ -45,10 +45,10 @@ const faqs = [
 ];
 
 const bars = [
-  { label: "Pennsylvania", value: 14.21, highlight: true },
-  { label: "Ohio", value: 13.12, highlight: false },
-  { label: "Texas", value: 8.64, highlight: false },
-  { label: "Massachusetts", value: 25.64, highlight: false },
+  { label: "Pennsylvania", value: 13.93, highlight: true },
+  { label: "Ohio", value: 12.31, highlight: false },
+  { label: "Texas", value: 8.96, highlight: false },
+  { label: "Massachusetts", value: 24.11, highlight: false },
 ];
 const maxBar = Math.max(...bars.map((b) => b.value));
 
@@ -132,10 +132,10 @@ export default function PennsylvaniaPage() {
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
-              Rates checked October 2026
+              Rates checked November 2026
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-              Pennsylvania&apos;s commercial average: 14.21¢/kWh
+              Pennsylvania&apos;s commercial average: 13.93¢/kWh
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
               That&apos;s the statewide average commercial electricity
@@ -173,8 +173,8 @@ export default function PennsylvaniaPage() {
               ))}
             </div>
             <p className="mt-4 max-w-2xl text-sm text-slate-600">
-              Massachusetts businesses pay 25.64¢/kWh on average — nearly
-              3x Texas. If you think PA rates sting, New England is another
+              Massachusetts businesses pay 24.11¢/kWh on average — more
+              than 2.5x Texas. If you think PA rates sting, New England is another
               world.
             </p>
             <p className="mt-2 max-w-2xl text-xs text-slate-500">
@@ -273,7 +273,7 @@ export default function PennsylvaniaPage() {
               Why the official average lies (a little)
             </h2>
             <p className="mt-4 max-w-3xl text-lg text-slate-600">
-              That 14.21¢ is real EIA data — but it&apos;s a statewide
+              That 13.93¢ is real EIA data — but it&apos;s a statewide
               average, and averages hide as much as they reveal. It blends
               municipal utilities and co-ops (not in the choice market at
               all) with bundled utility rates and competitive supply
