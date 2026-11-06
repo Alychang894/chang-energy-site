@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "utility-vs-supplier-explained",
+    title: "Utility vs. Supplier: Who Does What on Your Business Energy Bill?",
+    date: "2026-11-06",
+    summary:
+      "Your utility delivers the power and your supplier provides it — two different jobs on one bill. Who handles outages, who sets which charges, and which part you can actually shop this winter.",
+    tag: "Billing",
+  },
+  {
     slug: "demand-charges-explained",
     title: "Demand Charges Explained: Why Your Busiest Half Hour Sets Part of Your Bill",
     date: "2026-11-04",
