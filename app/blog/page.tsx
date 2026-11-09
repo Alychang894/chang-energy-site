@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "business-natural-gas-bill-explained",
+    title: "Your Business Natural Gas Bill, Explained: Why Heating Season Surprises Owners",
+    date: "2026-11-09",
+    summary:
+      "Most owners watch their electric bill and get surprised by the gas bill. How a business natural gas bill works — therms, supply vs. delivery, and why winter changes both — in plain English.",
+    tag: "Billing",
+  },
+  {
     slug: "utility-vs-supplier-explained",
     title: "Utility vs. Supplier: Who Does What on Your Business Energy Bill?",
     date: "2026-11-06",
