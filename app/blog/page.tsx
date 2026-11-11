@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "thanksgiving-week-energy-plan",
+    title: "Thanksgiving Week and Your Energy Bill: Close, Set Back, and Reopen Right",
+    date: "2026-11-11",
+    summary:
+      "Closing for Thanksgiving or running shorter holiday hours? How to set back the heat while you're closed, protect pipes and inventory, and avoid a demand spike when everything restarts at once.",
+    tag: "Seasonal",
+  },
+  {
     slug: "business-natural-gas-bill-explained",
     title: "Your Business Natural Gas Bill, Explained: Why Heating Season Surprises Owners",
     date: "2026-11-09",
