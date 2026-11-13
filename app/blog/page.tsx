@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "cold-snap-energy-plan-for-small-business",
+    title: "The First Cold Snap: How to Keep a Sudden Freeze From Spiking Your Bill",
+    date: "2026-11-13",
+    summary:
+      "The first real freeze is when winter bills jump — the heat runs longer, backup heat kicks in, and doors let the cold pour in. A plain-English plan to get through a cold snap without paying for waste.",
+    tag: "Seasonal",
+  },
+  {
     slug: "thanksgiving-week-energy-plan",
     title: "Thanksgiving Week and Your Energy Bill: Close, Set Back, and Reopen Right",
     date: "2026-11-11",
