@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "bakery-energy-costs",
+    title: "Bakery Energy Costs: Ovens, Early Mornings, and the Holiday Rush",
+    date: "2026-11-16",
+    summary:
+      "Ovens that start before dawn, refrigeration that never stops, and a holiday order book that fills up in November. Where a bakery's energy bill comes from, which part you can shop, and the checks to make before the rush peaks.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "cold-snap-energy-plan-for-small-business",
     title: "The First Cold Snap: How to Keep a Sudden Freeze From Spiking Your Bill",
     date: "2026-11-13",
