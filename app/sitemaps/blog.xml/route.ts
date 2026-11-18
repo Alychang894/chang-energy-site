@@ -16,6 +16,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${url("/blog", new Date().toISOString(), "weekly", "0.7")}
+  ${url("/blog/retail-store-energy-costs", "2026-11-18T00:00:00.000Z")}
   ${url("/blog/bakery-energy-costs", "2026-11-16T00:00:00.000Z")}
   ${url("/blog/cold-snap-energy-plan-for-small-business", "2026-11-13T00:00:00.000Z")}
   ${url("/blog/thanksgiving-week-energy-plan", "2026-11-11T00:00:00.000Z")}

@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "retail-store-energy-costs",
+    title: "Retail Store Energy Costs: Long Holiday Hours, Warm Doors, and Winter Bills",
+    date: "2026-11-18",
+    summary:
+      "Extended holiday hours, doors that never stop opening, and displays lit from open to close drive a retail store's winter bill. Where the money goes, which part you can shop, and the checks to make before Black Friday.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "bakery-energy-costs",
     title: "Bakery Energy Costs: Ovens, Early Mornings, and the Holiday Rush",
     date: "2026-11-16",
