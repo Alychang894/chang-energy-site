@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "convenience-store-energy-costs",
+    title: "Convenience Store Energy Costs: Coolers That Never Sleep and Doors That Never Stop",
+    date: "2026-11-20",
+    summary:
+      "Coolers and freezers that run around the clock, doors opening from early morning to late night, and a busy Thanksgiving travel week ahead drive a convenience store's energy bill. Where the money goes, which part you can shop, and the checks to make now.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "retail-store-energy-costs",
     title: "Retail Store Energy Costs: Long Holiday Hours, Warm Doors, and Winter Bills",
     date: "2026-11-18",
