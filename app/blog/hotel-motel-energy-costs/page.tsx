@@ -113,7 +113,7 @@ export default function Page() {
               items={[
                 "Set empty rooms back, not off. Between stays, set unoccupied rooms to a modest setback instead of full guest comfort — and never fully off in cold weather, so pipes stay protected and the room can come back to temperature quickly when it sells.",
                 "Stagger the laundry and the morning rush where you can. Washers, dryers, and water heating all peaking in the same checkout window makes for one sharp burst of use. Spreading laundry loads through the day, as rooms turn, is a calmer way to carry the same work.",
-                "Walk the doors, windows, and seals on your next room check. A exterior door that doesn't latch, a window that doesn't seal, or a worn entry sweep lets heated air out all night — and in a building with this many doors, small leaks add up room after room.",
+                "Walk the doors, windows, and seals on your next room check. An exterior door that doesn't latch, a window that doesn't seal, or a worn entry sweep lets heated air out all night — and in a building with this many doors, small leaks add up room after room.",
               ]}
             />
 
