@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "hotel-motel-energy-costs",
+    title: "Hotel and Motel Energy Costs: Full Rooms, Hot Showers, and a Busy Travel Week",
+    date: "2026-11-23",
+    summary:
+      "Full rooms for Thanksgiving travel, hot showers back to back, laundry that never quite catches up, and heat running in every occupied room drive a hotel or motel's energy bill. Where the money goes, which part you can shop, and the checks to make now.",
+    tag: "Industry Spotlight",
+  },
+  {
     slug: "convenience-store-energy-costs",
     title: "Convenience Store Energy Costs: Coolers That Never Sleep and Doors That Never Stop",
     date: "2026-11-20",
