@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "auto-renewal-clause-explained",
+    title: "Auto-Renewal Clauses: How a Quiet Contract Line Can Lock In Your Winter Rate",
+    date: "2026-11-25",
+    summary:
+      "Many business energy contracts renew on their own — often at a new rate — if you miss the notice window. How auto-renewal clauses work, where to find yours, and why the notice deadline matters more than the end date.",
+    tag: "Contracts",
+  },
+  {
     slug: "hotel-motel-energy-costs",
     title: "Hotel and Motel Energy Costs: Full Rooms, Hot Showers, and a Busy Travel Week",
     date: "2026-11-23",
