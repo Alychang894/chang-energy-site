@@ -21,6 +21,14 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "bandwidth-clause-explained",
+    title: "Bandwidth Clauses Explained: What Happens When Your Usage Swings",
+    date: "2026-11-27",
+    summary:
+      "A bandwidth clause sets how far your energy use can swing from what you expected without changing your price. How it works, why winter makes it matter, and the three questions to ask about your contract.",
+    tag: "Contracts",
+  },
+  {
     slug: "auto-renewal-clause-explained",
     title: "Auto-Renewal Clauses: How a Quiet Contract Line Can Lock In Your Winter Rate",
     date: "2026-11-25",
